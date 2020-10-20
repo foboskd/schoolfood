@@ -19,7 +19,7 @@ html{
 body{
     background-image:url("../media/img/backgroundimages/mainbg.svg");
     background-color:rgb(234, 234, 234);
-    padding:3.75rem 0 0 0;
+    padding:2.2rem 0 0 0;
     margin:0;
 }
 /*общие стили, конец*/
@@ -83,6 +83,25 @@ body{
     top: 25%;
 }
 /*компонент с карточками, версия лонг, конец*/
+
+/*кнопка назад*/
+
+.arrow_back{
+    position:absolute;
+    top: .1rem;
+    width:100%;
+
+}
+
+.arrow_back p{
+    color:#F68741;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0;
+}
+
+/*кнопка назад, конец*/
 
 /*школьный заголовок компонент*/
 .school_title{
@@ -253,10 +272,58 @@ body{
 /*прогрессбар, конец*/
 
 
+/*Кнопки внутри шорткарточки*/
+
+.button_zone{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.fotoadd{
+    width:15rem;
+    height:3rem;
+    border:none;
+    border-radius:.57rem;
+    background-color:#F0F0F0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+}
+
+.pretext{
+    margin:0;
+    font-size:.8rem;
+}
+
+/*Кнопки внутри шорткарточки, конец*/
+
+
+/*текстовая хона на шорткарточке*/
+.pretexttextzone{
+    margin-bottom: 1.5rem;
+    font-size:.8rem;
+}
+
+.textarea{
+    box-sizing:border-box;
+    border:none;
+    border-radius:.57rem;
+    background-color:#F0F0F0;
+    width:15rem;
+    height:10rem;
+    padding:.5rem;
+}
+/*текстовая хона на шорткарточке, конец*/
+
 
 /*кнопка далее*/
 
-wrapper_button{
+.wrapper_button{
     margin:0 auto;
     max-width:18rem;
 }
