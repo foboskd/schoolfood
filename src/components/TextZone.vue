@@ -1,7 +1,9 @@
 <template>
     <!--текстовая зона на шорткарточке-->
-    <p class="pretexttextzone">Необязательно</p>
-    <textarea  class="textarea"></textarea>
+    <div>
+        <p class="pretexttextzone">Необязательно</p>
+        <textarea  class="textarea"></textarea>
+    </div>
 </template>
 
 <script>
@@ -15,6 +17,7 @@
     .pretexttextzone{
         margin-bottom: 1.5rem;
         font-size:.8rem;
+        text-align:center;
     }
 
     .textarea{
@@ -25,5 +28,6 @@
         width:15rem;
         height:10rem;
         padding:.5rem;
+
     }
 </style>

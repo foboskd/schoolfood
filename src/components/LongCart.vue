@@ -1,6 +1,5 @@
 <template>
-    <!--компонент с карточками, версия лонг, которая с девочкой-->
-        <div class="desck_card_back"></div>
+        <!--компонент с карточками, версия лонг, которая с девочкой-->
         <div class="desck_card_front">
             <h1>Помоги нам сделать<br> твои обеды лучше</h1>
             <div class="circul">
@@ -9,7 +8,6 @@
             </div>
         </div>
 </template>
-
 <script>
     export default {
         name: "LongCart"
@@ -18,16 +16,6 @@
 
 <style scoped>
     /*компонент с карточками, версия лонг, которая с девочкой*/
-    .desck_card_back{
-        width:16rem;
-        height:29rem;
-        margin:0 auto;
-        background-color:#ffff;
-        box-shadow: 0px -5px 15px 2px rgba(0, 0, 0, 0.1);
-        border-radius: 1.25rem;
-        position: relative;
-    }
-
     .desck_card_front{
         max-width:18rem;
         width:100%;

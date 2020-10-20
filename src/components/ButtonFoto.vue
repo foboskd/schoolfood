@@ -1,11 +1,11 @@
 <template>
     <!--Кнопки сделать фото внутри шорткарточки-->
     <div class="button_zone">
-        <button class="fotoadd" type="file"><img src="public/media/img/galery.svg">&nbsp;&nbsp;Добавить из галереи</button>
+        <button class="fotoadd" type="file"><img src="../../public/media/img/galery.svg">&nbsp;&nbsp;Добавить из галереи</button>
         <br>
         <p class="pretext">Или</p>
         <br>
-        <button class="fotoadd"><img src="public/media/img/fcamera.svg">&nbsp;&nbsp;Сделать фото</button>
+        <button class="fotoadd"><img src="../../public/media/img/fcamera.svg">&nbsp;&nbsp;Сделать фото</button>
     </div>
 </template>
 
