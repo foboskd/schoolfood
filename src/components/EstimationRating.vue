@@ -35,6 +35,7 @@
         left:0;
         height:2rem;
         background-size:2.5rem;
+        border:none;
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;

@@ -2,13 +2,14 @@
     <!--кнопка далее-->
     <article class="actionbutton_container">
         <div class="wrapper_button">
-            <button class="action_button">Далее</button>
+            <button class="action_button" @click="$router.push(`${button.link}`)">{{button.buttonTitle}}</button>
         </div>
     </article>
 </template>
 
 <script>
     export default {
+        props:['button'],
         name: "ButtonAction"
     }
 </script>

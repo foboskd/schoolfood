@@ -1,17 +1,29 @@
 <template>
     <!--Кнопки сделать фото внутри шорткарточки-->
     <div class="button_zone">
-        <button class="fotoadd" type="file"><img src="../../public/media/img/galery.svg">&nbsp;&nbsp;Добавить из галереи</button>
-        <br>
-        <p class="pretext">Или</p>
-        <br>
-        <button class="fotoadd"><img src="../../public/media/img/fcamera.svg">&nbsp;&nbsp;Сделать фото</button>
+        <label for="fotofile" class="fotoadd">
+            <img src="../../public/media/img/galery.svg">&nbsp;Сделать или добавить фото
+        </label>
+        <input type="file" id="fotofile" class="fotofile" @change="onFileSelected" multiple />
+
     </div>
 </template>
 
 <script>
     export default {
-        name: "ButtonFoto"
+        props: ['testParam'],
+        name: "ButtonFoto",
+        data(){
+            return{
+                selectedFile: null
+            }
+        },
+        methods:{
+            onFileSelected(event){
+                localStorage.selectedFile = event.target.files[0].name;
+                console.log(localStorage.selectedFile);
+            }
+        }
     }
 </script>
 
@@ -36,10 +48,15 @@
         align-items:center;
         justify-content:center;
         flex-direction:row;
+        font-size:.9rem;
     }
 
     .pretext{
         margin:0;
         font-size:.8rem;
+    }
+
+    .fotofile{
+        visibility:hidden;
     }
 </style>

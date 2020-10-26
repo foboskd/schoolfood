@@ -2,15 +2,17 @@
     <!--прогрессбар-->
     <article class="progresspoint_container">
         <div class="wrapper_point">
-            <div class="point"></div>
-            <div class="point"></div>
-            <div class="point"></div>
+            <div class="point" v-for="point of points" :key="point.id" v-bind:class="{pointColor: point.color}"></div>
         </div>
     </article>
 </template>
 
 <script>
     export default {
+        props:['points'],
+        components: {
+
+        },
         name: "ProgressPoint"
     }
 </script>
@@ -31,11 +33,18 @@
         padding-top:2.6rem;
         padding-bottom:1.6rem;
     }
-
     .point{
         width:1.1rem;
         height:1.1rem;
         background-color: #DADADA;
         border-radius:50%;
     }
+
+    .pointColor {
+        width:1.1rem;
+        height:1.1rem;
+        background-color: rgb(255, 95, 51);
+        border-radius:50%;
+    }
+
 </style>
