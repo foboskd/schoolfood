@@ -21,6 +21,7 @@
         methods:{
             getValueInput(event){
                 eventBus.$emit('EstimationRating', {estimationIndex: event.target.value});
+                localStorage.setItem('rating', event.target.value);
             }
         }
     }

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import {eventBus} from "../main";
+    //import {eventBus} from "../main";
 
     export default {
         name: "TextZone",
@@ -19,7 +19,8 @@
         },
         methods:{
             getTextOnTextZone(){
-                eventBus.$emit('TextZone', {textBus: this.textZoneDescription});
+                /*eventBus.$emit('TextZone', {textBus: this.textZoneDescription});*/
+                localStorage.setItem('textZoneDescription', this.textZoneDescription);
             }
         }
     }

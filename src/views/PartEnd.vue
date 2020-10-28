@@ -9,7 +9,7 @@
                     :key="titleText.id"
                     v-bind:titleText="titleText"
             >
-                {{past}}<img src="../../public/media/img/backgroundimages/thanks.svg">
+                <img src="../../public/media/img/backgroundimages/thanks.svg">
 
             </ShortCart>
             <ProgressPoint
@@ -19,6 +19,7 @@
                     v-for="button of buttons"
                     :key="button.id"
                     v-bind:button="button"
+                    v-on:click="sendInfo"
             >
             </ButtonAction>
         </CartArea>
@@ -28,7 +29,8 @@
 </template>
 
 <script>
-    import {eventBus} from '../main';
+    //import {eventBus} from '../main';
+    import axios from 'axios';
     import UpLineText from "../components/UpLineText";
     import CartArea from "../components/CartArea";
     import BackCartShort from "../components/BackCartShort";
@@ -51,19 +53,46 @@
                 titleTexts:[
                     {id:1, text:'Спасибо\n' + 'за вашу оценку'}
                 ],
-                past:null
+                rating:null,
+                testDescription:null,
+                fotoAdress:null
             }
         },
-        mounted (){
-            eventBus.$on('EstimationRating', data =>{
-                this.past = data.estimationIndex
+        created (){
+            console.log('testeventBus');
+            this.rating = localStorage.getItem('rating');
+            this.testDescription = localStorage.getItem('textZoneDescription');
+            this.fotoAdress = localStorage.getItem('fotAdds');
+            axios.post('http://192.168.0.151/abc.php', {
+                rating: this.rating,
+                testDescription: this.testDescription,
+                fotoAdress: this.fotoAdress
+            }, {
+                headers:{
+                    'Content-Type': 'multipart/form-data'
+                }
             })
-        },
-        beforeDestroy() {
-            eventBus.$off('EstimationRating', data =>{
-                this.past = data.estimationIndex
-            })
-        },
+                .then(res => {
+                    console.log(res)
+                })
+        }/*,
+        methods:{
+            sendInfo() {
+                console.log('click')
+                axios.get('http://192.168.0.151/test.php', {
+                    rating: this.rating,
+                    testDescription: this.testDescription,
+                    fotoAdress: this.fotoAdress
+                }, {
+                    headers:{
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                    .then(res => {
+                        console.log(res)
+                    })
+            }
+        }*/,
         components: {ShortCart, BackCartShort, CartArea, UpLineText, ProgressPoint, ButtonAction}
     }
 </script>

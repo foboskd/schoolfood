@@ -15,7 +15,7 @@
 
 <script>
     import axios from 'axios';
-    import {eventBus} from '../main';
+    //import {eventBus} from '../main';
     export default {
         props: ['testParam'],
         name: "ButtonFoto",
@@ -33,7 +33,7 @@
                 const fileData = new FormData();
                 fileData.append('image', this.selectedFile, this.selectedFile.name);
 
-                console.log(fileData);
+                //console.log(fileData);
                 //ip поставлен в настройках openserver
                 axios.post('http://192.168.0.151/test.php', fileData, {
                     headers:{
@@ -42,8 +42,11 @@
                 })
                 .then(res => {
                     this.tmpImage = res.data
+                    localStorage.setItem('fotAdds', this.tmpImage);
                 })
-                eventBus.$emit('ButtonFoto', {tmpImage:this.tmpImage})
+
+
+                /*eventBus.$emit('ButtonFoto', {tmpImage:this.tmpImage})*/
             }
         }
     }
