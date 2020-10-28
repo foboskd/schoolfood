@@ -4,6 +4,7 @@ import Index from './views/Index';
 import PartOne from './views/PartOne';
 import PartTwo from "./views/PartTwo";
 import PartThree from "./views/PartThree";
+import PartEnd from "./views/PartEnd";
 
 Vue.use(VueRouter);
 
@@ -30,5 +31,10 @@ export default new VueRouter({
             name: 'partthree',
             component: PartThree
         },
+        {
+            path: '/end',
+            name: 'end',
+            component: PartEnd
+        }
     ]
 })

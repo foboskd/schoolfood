@@ -8,7 +8,11 @@
         <UpLineText></UpLineText>
         <CartArea>
             <BackCartShort />
-            <ShortCart>
+            <ShortCart
+                    v-for="titleText of titleTexts"
+                    :key="titleText.id"
+                    v-bind:titleText="titleText"
+            >
                 <ButtonFoto />
             </ShortCart>
             <ProgressPoint
@@ -37,7 +41,7 @@
         data(){
             return{
                 buttons:[
-                    {id: 1, buttonTitle:"Дальше!", link:'/part3'}
+                    {id: 2, buttonTitle:"Дальше!", link:'/part3'}
                 ],
                 points:[
                     {id: 1, color:true},
@@ -46,6 +50,9 @@
                 ],
                 arrows:[
                     {id: 1, link:'/part1'}
+                ],
+                titleTexts:[
+                    {id:1, text:'Загрузите' + 'фотографию обеда'}
                 ]
             }
         },

@@ -2,13 +2,26 @@
     <!--текстовая зона на шорткарточке-->
     <div>
         <p class="pretexttextzone">Необязательно</p>
-        <textarea  class="textarea"></textarea>
+        <textarea  class="textarea" v-model="textZoneDescription" @change="getTextOnTextZone"></textarea>
     </div>
 </template>
 
 <script>
+    import {eventBus} from "../main";
+
     export default {
-        name: "TextZone"
+        name: "TextZone",
+        data(){
+            return {
+                textZoneDescription: null,
+                textBus: null
+            }
+        },
+        methods:{
+            getTextOnTextZone(){
+                eventBus.$emit('TextZone', {textBus: this.textZoneDescription});
+            }
+        }
     }
 </script>
 

@@ -1,17 +1,28 @@
 <template>
     <!--компонент оценки-->
     <fieldset class="wrapper_estimation">
-        <input class="rating_point" type="radio" name="food" value="1" aria-label="Не съедобно" checked>
-        <input class="rating_point" type="radio" name="food" value="2" aria-label="Ужасно">
-        <input class="rating_point" type="radio" name="food" value="3" aria-label="Удовлетворительно">
-        <input class="rating_point" type="radio" name="food" value="4" aria-label="Хорошо">
-        <input class="rating_point" type="radio" name="food" value="5" aria-label="Отлично">
+        <input class="rating_point" type="radio" name="food" value="1" aria-label="Не съедобно" checked @change="getValueInput">
+        <input class="rating_point" type="radio" name="food" value="2" aria-label="Ужасно" @change="getValueInput">
+        <input class="rating_point" type="radio" name="food" value="3" aria-label="Удовлетворительно" @change="getValueInput">
+        <input class="rating_point" type="radio" name="food" value="4" aria-label="Хорошо" @change="getValueInput">
+        <input class="rating_point" type="radio" name="food" value="5" aria-label="Отлично" @change="getValueInput">
     </fieldset>
 </template>
 
 <script>
+    import {eventBus} from '../main';
     export default {
-        name: "EstimationRating"
+        name: "EstimationRating",
+        data(){
+            return {
+                estimationIndex:null,
+            }
+        },
+        methods:{
+            getValueInput(event){
+                eventBus.$emit('EstimationRating', {estimationIndex: event.target.value});
+            }
+        }
     }
 </script>
 

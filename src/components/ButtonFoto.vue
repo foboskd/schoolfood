@@ -15,13 +15,15 @@
 
 <script>
     import axios from 'axios';
+    import {eventBus} from '../main';
     export default {
         props: ['testParam'],
         name: "ButtonFoto",
         data(){
             return{
                 selectedFile: null,
-                tmpImage:null
+                tmpImage: null
+
             }
         },
         methods:{
@@ -41,6 +43,7 @@
                 .then(res => {
                     this.tmpImage = res.data
                 })
+                eventBus.$emit('ButtonFoto', {tmpImage:this.tmpImage})
             }
         }
     }

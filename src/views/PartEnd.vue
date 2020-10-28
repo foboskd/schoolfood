@@ -1,24 +1,20 @@
 <template>
     <div>
-        <UpArrow
-                    v-for="arrow of arrows"
-                    :key="arrow.id"
-                    v-bind:arrow="arrow"
-        ></UpArrow>
-        <UpLineText></UpLineText>
+
+        <up-line-text></up-line-text>
         <CartArea>
-            <BackCartShort />
+            <BackCartShort></BackCartShort>
             <ShortCart
                     v-for="titleText of titleTexts"
                     :key="titleText.id"
                     v-bind:titleText="titleText"
             >
-                <TextZone />
+                {{past}}<img src="../../public/media/img/backgroundimages/thanks.svg">
+
             </ShortCart>
             <ProgressPoint
                     v-bind:points="points"
-            >
-            </ProgressPoint>
+            ></ProgressPoint>
             <ButtonAction
                     v-for="button of buttons"
                     :key="button.id"
@@ -26,40 +22,49 @@
             >
             </ButtonAction>
         </CartArea>
+
     </div>
+
 </template>
 
 <script>
+    import {eventBus} from '../main';
+    import UpLineText from "../components/UpLineText";
     import CartArea from "../components/CartArea";
     import BackCartShort from "../components/BackCartShort";
     import ShortCart from "../components/ShortCart";
-    import TextZone from "../components/TextZone";
     import ProgressPoint from "../components/ProgressPoint";
     import ButtonAction from "../components/ButtonAction";
-    import UpLineText from "../components/UpLineText";
-    import UpArrow from "../components/UpArrow";
 
     export default {
-        name: "PartThree",
+        name: "PartEnd",
         data(){
             return{
                 buttons:[
-                    {id: 3, buttonTitle:"Отправить отзыв!", link:'/end'}
+                    {id: 4, buttonTitle:"Выйти!", link:'/'}
                 ],
                 points:[
                     {id: 1, color:true},
                     {id: 2, color:true},
                     {id: 3, color:true}
                 ],
-                arrows:[
-                    {id: 1, link:'/part2'}
-                ],
                 titleTexts:[
-                    {id:1, text:'Опишите\n' + 'свои впечатления'}
-                ]
+                    {id:1, text:'Спасибо\n' + 'за вашу оценку'}
+                ],
+                past:null
             }
         },
-        components: {ButtonAction, ProgressPoint, CartArea, BackCartShort, ShortCart, TextZone, UpArrow, UpLineText}
+        mounted (){
+            eventBus.$on('EstimationRating', data =>{
+                this.past = data.estimationIndex
+            })
+        },
+        beforeDestroy() {
+            eventBus.$off('EstimationRating', data =>{
+                this.past = data.estimationIndex
+            })
+        },
+        components: {ShortCart, BackCartShort, CartArea, UpLineText, ProgressPoint, ButtonAction}
     }
 </script>
 

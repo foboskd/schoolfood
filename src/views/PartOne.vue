@@ -8,7 +8,11 @@
         <UpLineText></UpLineText>
         <CartArea>
             <BackCartShort />
-            <ShortCart>
+            <ShortCart
+                    v-for="titleText of titleTexts"
+                    :key="titleText.id"
+                    v-bind:titleText="titleText"
+            >
                 <EstimationRating></EstimationRating>
                 <EstimationRatingResult></EstimationRatingResult>
             </ShortCart>
@@ -51,6 +55,9 @@
                 ],
                 arrows:[
                     {id: 1, link:'/'}
+                ],
+                titleTexts:[
+                    {id:1, text:'Оцените качество\n' + 'обеда в столовой'}
                 ]
             }
         },

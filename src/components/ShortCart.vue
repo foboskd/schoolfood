@@ -1,7 +1,7 @@
 <template>
     <!--компонент с карточками, версия шорт-->
     <div class="desck_shortcard_front">
-        <h1>Оцените качество<br>обеда в столовой</h1>
+        <h1>{{titleText.text}}</h1>
         <div class="wrapper_actionzone">
             <slot>
 
@@ -12,6 +12,7 @@
 
 <script>
     export default {
+        props:['titleText'],
         name: "ShortCart"
     }
 </script>
