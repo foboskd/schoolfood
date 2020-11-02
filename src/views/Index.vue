@@ -1,8 +1,15 @@
 <template>
     <CartArea>
-        <BackCart />
-        <LongCart>
-        </LongCart>
+        <div style="padding-top:4rem"></div>
+        <CartArea>
+            <BackCartShort />
+            <ShortCart>
+                    <h1>Помоги нам сделать<br> твои обеды лучше</h1>
+                    <div class="bacgroundsoup">
+                        <img src="../../public/media/img/soupindex.svg" class="circul_backgroundgirl">
+                    </div>
+            </ShortCart>
+        </CartArea>
         <ProgressPoint
                 v-bind:points="points"
         >
@@ -18,8 +25,8 @@
 
 <script>
     import CartArea from '../components/CartArea';
-    import BackCart from '../components/BackCart';
-    import LongCart from '../components/LongCart';
+    import BackCartShort from '../components/BackCartShort';
+    import ShortCart from '../components/ShortCart';
     import ProgressPoint from "../components/ProgressPoint";
     import ButtonAction from "../components/ButtonAction";
 
@@ -40,13 +47,15 @@
         components:{
             ProgressPoint,
             CartArea,
-            LongCart,
-            BackCart,
+            ShortCart,
+            BackCartShort,
             ButtonAction
         }
     }
 </script>
 
 <style scoped>
-
+    .bacgroundsoup{
+        padding-top:2rem;
+    }
 </style>

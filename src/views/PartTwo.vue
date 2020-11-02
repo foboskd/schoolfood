@@ -9,9 +9,7 @@
         <CartArea>
             <BackCartShort />
             <ShortCart
-                    v-for="titleText of titleTexts"
-                    :key="titleText.id"
-                    v-bind:titleText="titleText"
+                    v-bind:titleTexts="titleTexts"
             >
                 <ButtonFoto />
             </ShortCart>
@@ -52,7 +50,8 @@
                     {id: 1, link:'/part1'}
                 ],
                 titleTexts:[
-                    {id:1, text:'Загрузите' + 'фотографию обеда'}
+                    {id:1, text:'Не понравилось?'},
+                    {id:2, text:'Cфотай еду'}
                 ]
             }
         },

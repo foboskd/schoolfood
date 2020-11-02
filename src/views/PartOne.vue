@@ -9,12 +9,9 @@
         <CartArea>
             <BackCartShort />
             <ShortCart
-                    v-for="titleText of titleTexts"
-                    :key="titleText.id"
-                    v-bind:titleText="titleText"
+                    v-bind:titleTexts="titleTexts"
             >
-                <EstimationRating></EstimationRating>
-                <EstimationRatingResult></EstimationRatingResult>
+                <EstimationGoodBad></EstimationGoodBad>
             </ShortCart>
             <ProgressPoint
                     v-bind:points="points"
@@ -34,12 +31,13 @@
     import CartArea from "../components/CartArea";
     import BackCartShort from "../components/BackCartShort";
     import ShortCart from "../components/ShortCart";
-    import EstimationRating from "../components/EstimationRating";
-    import EstimationRatingResult from "../components/EstimationRatingResult";
+    //import EstimationRating from "../components/EstimationRating";
+    //import EstimationRatingResult from "../components/EstimationRatingResult";
     import ProgressPoint from "../components/ProgressPoint";
     import ButtonAction from "../components/ButtonAction";
     import UpLineText from "../components/UpLineText";
     import UpArrow from "../components/UpArrow";
+    import EstimationGoodBad from "../components/EstimationGoodBad";
 
     export default {
         name: "PartOne",
@@ -57,15 +55,15 @@
                     {id: 1, link:'/'}
                 ],
                 titleTexts:[
-                    {id:1, text:'Оцените качество\n' + 'обеда в столовой'}
+                    {id:1, text:'Оцените качество'},
+                    {id:2, text:'обеда в столовой'}
                 ]
             }
         },
         components: {
+            EstimationGoodBad,
             UpArrow,
             UpLineText,
-            EstimationRatingResult,
-            EstimationRating,
             BackCartShort,
             CartArea,
             ShortCart,

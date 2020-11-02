@@ -1,10 +1,11 @@
 <template>
     <!--компонент с карточками, версия шорт-->
     <div class="desck_shortcard_front">
-        <h1>{{titleText.text}}</h1>
+        <h1 v-for="titleText of titleTexts" :key="titleText.id">
+            {{titleText.text}}<br>
+        </h1>
         <div class="wrapper_actionzone">
             <slot>
-
             </slot>
         </div>
     </div>
@@ -12,8 +13,13 @@
 
 <script>
     export default {
-        props:['titleText'],
-        name: "ShortCart"
+        props:['titleTexts'],
+        name: "ShortCart",
+        data(){
+            return{
+                text:null
+            }
+        }
     }
 </script>
 
@@ -49,6 +55,6 @@
         flex-direction:column;
         align-items:center;
         justify-content: center;
-        height:15rem;
+        height:18rem;
     }
 </style>

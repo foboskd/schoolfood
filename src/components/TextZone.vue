@@ -1,7 +1,7 @@
 <template>
     <!--текстовая зона на шорткарточке-->
-    <div>
-        <p class="pretexttextzone">Необязательно</p>
+    <div class="textareaWrapper">
+        <!--<p class="pretexttextzone">Необязательно</p>-->
         <textarea  class="textarea" v-model="textZoneDescription" @change="getTextOnTextZone"></textarea>
     </div>
 </template>

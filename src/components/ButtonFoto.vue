@@ -3,7 +3,7 @@
     <div class="button_zone">
 
         <img v-if="tmpImage == null" src="../../public/media/img/backgroundimages/placeholderFoto.svg" class="placeholderFoto">
-        <img v-else class="placeholderFoto" v-bind:src="`http://192.168.0.151/${tmpImage}`">
+        <img v-else class="placeholderFoto" v-bind:src="`http://formconstructor.ru//${tmpImage}`">
         <label for="fotofile" class="fotoadd">
             <img src="../../public/media/img/galery.svg">&nbsp;Сделать или добавить фото
         </label>
@@ -33,9 +33,9 @@
                 const fileData = new FormData();
                 fileData.append('image', this.selectedFile, this.selectedFile.name);
 
-                //console.log(fileData);
+                console.log(fileData);
                 //ip поставлен в настройках openserver
-                axios.post('http://192.168.0.151/test.php', fileData, {
+                axios.post('http://formconstructor.ru/query.php', fileData, {
                     headers:{
                         'Content-Type': 'multipart/form-data'
                     }
@@ -61,7 +61,7 @@
         height:100%;
         justify-content:flex-end;
         align-items:center;
-        padding-top:4rem;
+
     }
 
     .fotoadd{
