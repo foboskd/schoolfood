@@ -8,15 +8,12 @@
         <UpLineText></UpLineText>
         <CartArea>
             <BackCartShort />
-            <ShortCart
-                    v-bind:titleTexts="titleTexts"
-            >
-                <EstimationGoodBad></EstimationGoodBad>
-            </ShortCart>
-            <ProgressPoint
-                    v-bind:points="points"
-            >
-            </ProgressPoint>
+            <transition name="fadeCart">
+                <ShortCart v-bind:titleTexts="titleTexts" v-if="animFadeCart">
+                    <EstimationGoodBad></EstimationGoodBad>
+                </ShortCart>
+            </transition>
+            <ProgressPoint v-bind:points="points"></ProgressPoint>
             <div v-if="eventActionFlag == null">
                 <ButtonAction v-for="button of buttons" :key="button.id" v-bind:button="button"></ButtonAction>
             </div>
@@ -31,11 +28,11 @@
 </template>
 
 <script>
+    //import EstimationRating from "../components/EstimationRating";
+    //import EstimationRatingResult from "../components/EstimationRatingResult";
     import CartArea from "../components/CartArea";
     import BackCartShort from "../components/BackCartShort";
     import ShortCart from "../components/ShortCart";
-    //import EstimationRating from "../components/EstimationRating";
-    //import EstimationRatingResult from "../components/EstimationRatingResult";
     import ProgressPoint from "../components/ProgressPoint";
     import ButtonAction from "../components/ButtonAction";
     import UpLineText from "../components/UpLineText";
@@ -68,15 +65,21 @@
                     {id:1, text:'Оцените качество'},
                     {id:2, text:'обеда в столовой'}
                 ],
-                eventActionFlag: null
+                eventActionFlag: null,
+                animFadeCart: true
             }
+        },
+        watch(){
+            eventBus.$on('animEvent', data => {
+                this.animFadeCart = data.animFadeCart
+                console.log(this.animFadeCart)
+            });
         },
         created(){
             eventBus.$on('eventActionFlag', data =>{
                 this.eventActionFlag = data.eventActionFlag;
                 console.log(this.eventActionFlag)
             });
-
         },
         components: {
             EstimationGoodBad,
@@ -92,5 +95,20 @@
 </script>
 
 <style scoped>
-
+    .fadeCart-enter-active{
+        animation: bounce-in .5s;
+        transition: all 400ms ease-out;
+    }
+    .fadeCart-leave-active {
+        animation: bounce-in .5s reverse;
+        transition: all 400ms ease-out;
+    }
+    @keyframes bounce-in {
+        0%{
+            transform: scale(0);
+        }
+        50%{
+            transform: scale(1.5);
+        }
+    }
 </style>
