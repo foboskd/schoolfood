@@ -1,6 +1,7 @@
 <template>
     <CartArea>
-        <div style="padding-top:4rem"></div>
+        <div ></div>
+        <UpLineText></UpLineText>
         <CartArea>
             <BackCartShort />
             <ShortCart>
@@ -29,6 +30,7 @@
     import ShortCart from '../components/ShortCart';
     import ProgressPoint from "../components/ProgressPoint";
     import ButtonAction from "../components/ButtonAction";
+    import UpLineText from "../components/UpLineText";
 
     export default {
         name: "index",
@@ -49,7 +51,8 @@
             CartArea,
             ShortCart,
             BackCartShort,
-            ButtonAction
+            ButtonAction,
+            UpLineText
         }
     }
 </script>

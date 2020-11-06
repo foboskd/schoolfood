@@ -1,7 +1,13 @@
 <template>
     <!--кнопка далее-->
     <article class="actionbutton_container">
-        <div class="wrapper_button">
+        <div class="wrapper_button" v-if="button.attributeStyleDisable == true">
+            <button disabled class="action_button" @click="$router.push(`${button.link}`)">{{button.buttonTitle}}</button>
+        </div>
+        <div class="wrapper_button" v-else-if="button.attributeStyleDisable == false">
+            <button class="action_button" @click="$router.push(`${button.link}`)">{{button.buttonTitle}}</button>
+        </div>
+        <div class="wrapper_button" v-else-if="!button.attributeStyleDisable">
             <button class="action_button" @click="$router.push(`${button.link}`)">{{button.buttonTitle}}</button>
         </div>
     </article>
@@ -37,5 +43,10 @@
         font-size:1.1rem;
         font-weight:500;
         font-family:ptrootui;
+    }
+
+    .action_button:disabled{
+        background-color: #adacac;
+        color:black;
     }
 </style>

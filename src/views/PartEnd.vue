@@ -59,7 +59,7 @@
         },
         created (){
             console.log('testeventBus');
-            this.rating = localStorage.getItem('rating');
+            this.rating = localStorage.getItem('countEstimation');
             this.testDescription = localStorage.getItem('textZoneDescription');
             this.fotoAdress = localStorage.getItem('fotAdds');
             axios.post('http://192.168.0.151/abc.php', {

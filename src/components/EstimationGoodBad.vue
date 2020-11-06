@@ -20,14 +20,16 @@
 </template>
 
 <script>
+    import {eventBus} from "../main";
+
     export default {
         name: "EstimationGoodBad",
         data(){
           return{
               pathImageBad: "badestimationgrey.svg",
               pathImageGood: "goodestimationgrey.svg",
-              addFirstString: "Ожидаем",
-              addSecondString: "Вашу оценку"
+              addFirstString: "Выбери,",
+              addSecondString: "как тебе еда в столовой?"
           }
         },
         methods:{
@@ -35,16 +37,18 @@
                 if (event.target.value == 1){
                     this.pathImageGood = "goodestimationcolor.svg";
                     this.pathImageBad = "badestimationgrey.svg";
-                    this.addFirstString = "Вы поставили";
-                    this.addSecondString = "положительную оценку";
+                    this.addFirstString = "Мне понравилось!";
+                    this.addSecondString = "Сегодня было вкусно!";
                     localStorage.setItem('countEstimation', event.target.value)
+                    eventBus.$emit('eventActionFlag', {eventActionFlag: event.target.value}) // установил сохранение события в эвент бас для изменения пользовательского пути в зависимости от выбора
                 }
                 else{
                     this.pathImageGood = "goodestimationgrey.svg";
                     this.pathImageBad = "badestimationcolor.svg";
-                    this.addFirstString = "Вы поставили";
-                    this.addSecondString = "отрицательную оценку";
+                    this.addFirstString = "Мне не понравилось!";
+                    this.addSecondString = "Сегодня было плохо!";
                     localStorage.setItem('countEstimation', event.target.value)
+                    eventBus.$emit('eventActionFlag', {eventActionFlag: event.target.value}) // установил сохранение события в эвент бас для изменения пользовательского пути в зависимости от выбора
                 }
 
             }

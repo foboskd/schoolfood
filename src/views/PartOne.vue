@@ -17,12 +17,15 @@
                     v-bind:points="points"
             >
             </ProgressPoint>
-            <ButtonAction
-                    v-for="button of buttons"
-                    :key="button.id"
-                    v-bind:button="button"
-            >
-            </ButtonAction>
+            <div v-if="eventActionFlag == null">
+                <ButtonAction v-for="button of buttons" :key="button.id" v-bind:button="button"></ButtonAction>
+            </div>
+            <div v-else-if="eventActionFlag == '1'">
+                <ButtonAction v-for="button of buttonsGoodWay" :key="button.id" v-bind:button="button"></ButtonAction>
+            </div>
+            <div v-else-if="eventActionFlag == '-1'">
+                <ButtonAction v-for="button of buttonBadWay" :key="button.id" v-bind:button="button"></ButtonAction>
+            </div>
         </CartArea>
     </div>
 </template>
@@ -38,13 +41,20 @@
     import UpLineText from "../components/UpLineText";
     import UpArrow from "../components/UpArrow";
     import EstimationGoodBad from "../components/EstimationGoodBad";
+    import {eventBus} from "../main";
 
     export default {
         name: "PartOne",
         data(){
             return{
+                buttonsGoodWay:[
+                    {id:1, buttonTitle:"Дальше!", link:'/end', attributeStyleDisable: false}
+                ],
+                buttonBadWay:[
+                    {id: 1, buttonTitle:"Дальше!", link:'/part2', attributeStyleDisable: false}
+                ],
                 buttons:[
-                    {id: 1, buttonTitle:"Дальше!", link:'/part2'}
+                    {id: 1, buttonTitle:"Проголосуй!", link:'', attributeStyleDisable: true}
                 ],
                 points:[
                     {id: 1, color:true},
@@ -57,8 +67,16 @@
                 titleTexts:[
                     {id:1, text:'Оцените качество'},
                     {id:2, text:'обеда в столовой'}
-                ]
+                ],
+                eventActionFlag: null
             }
+        },
+        created(){
+            eventBus.$on('eventActionFlag', data =>{
+                this.eventActionFlag = data.eventActionFlag;
+                console.log(this.eventActionFlag)
+            });
+
         },
         components: {
             EstimationGoodBad,
