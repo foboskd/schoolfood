@@ -42,6 +42,6 @@
         width:15rem;
         height:10rem;
         padding:.5rem;
-
+        resize: none;
     }
 </style>

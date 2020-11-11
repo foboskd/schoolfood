@@ -18,7 +18,7 @@
                 <ButtonAction v-for="button of buttons" :key="button.id" v-bind:button="button"></ButtonAction>
             </div>
             <div v-else-if="eventActionFlag == '1'">
-                <ButtonAction v-for="button of buttonsGoodWay" :key="button.id" v-bind:button="button"></ButtonAction>
+                <ButtonAction @click="animFadeCart = !animFadeCart" v-for="button of buttonsGoodWay" :key="button.id" v-bind:button="button"></ButtonAction>
             </div>
             <div v-else-if="eventActionFlag == '-1'">
                 <ButtonAction v-for="button of buttonBadWay" :key="button.id" v-bind:button="button"></ButtonAction>
@@ -44,6 +44,10 @@
         name: "PartOne",
         data(){
             return{
+                titleTexts:[
+                    {id:1, text:'Оцените качество'},
+                    {id:2, text:'обеда в столовой'}
+                ],
                 buttonsGoodWay:[
                     {id:1, buttonTitle:"Дальше!", link:'/end', attributeStyleDisable: false}
                 ],
@@ -61,20 +65,16 @@
                 arrows:[
                     {id: 1, link:'/'}
                 ],
-                titleTexts:[
-                    {id:1, text:'Оцените качество'},
-                    {id:2, text:'обеда в столовой'}
-                ],
                 eventActionFlag: null,
                 animFadeCart: true
             }
         },
-        watch(){
-            eventBus.$on('animEvent', data => {
-                this.animFadeCart = data.animFadeCart
-                console.log(this.animFadeCart)
-            });
-        },
+        // watch(){
+        //     eventBus.$on('animEvent', data => {
+        //         this.animFadeCart = data.animFadeCart
+        //         console.log(this.animFadeCart)
+        //     });
+        // },
         created(){
             eventBus.$on('eventActionFlag', data =>{
                 this.eventActionFlag = data.eventActionFlag;

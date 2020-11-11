@@ -5,6 +5,7 @@ import PartOne from './views/PartOne';
 import PartTwo from "./views/PartTwo";
 import PartThree from "./views/PartThree";
 import PartEnd from "./views/PartEnd";
+//import InPartOne from "./views/InPartOne";
 
 Vue.use(VueRouter);
 
@@ -19,7 +20,11 @@ export default new VueRouter({
         {
             path: '/part1',
             name: 'partone',
-            component: PartOne
+            component: PartOne,
+            // children:[{
+            //     path:'inpartone',
+            //     component: InPartOne
+            // }]
         },
         {
             path: '/part2',

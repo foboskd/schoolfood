@@ -54,7 +54,8 @@
                 ],
                 rating:null,
                 testDescription:null,
-                fotoAdress:null
+                fotoAdress:null,
+                asscc: null
             }
         },
         created (){
@@ -62,11 +63,24 @@
             this.rating = localStorage.getItem('countEstimation');
             this.testDescription = localStorage.getItem('textZoneDescription');
             this.fotoAdress = localStorage.getItem('fotAdds');
-            axios.post('http://192.168.0.151/abc.php', {
-                rating: this.rating,
-                testDescription: this.testDescription,
-                fotoAdress: this.fotoAdress
-            }, {
+
+            const fData = new FormData();
+            fData.append('rating', this.rating);
+            fData.append('testDescription', this.testDescription);
+            fData.append('fotoAdress', this.fotoAdress);
+            fData.append('asscc', "test");
+
+            localStorage.removeItem('countEstimation');
+            localStorage.removeItem('textZoneDescription');
+            localStorage.removeItem('fotAdds');
+
+            // axios.post('http://188.127.230.228/backend/querySum.php', {
+            //     rating: this.rating,
+            //     testDescription: this.testDescription,
+            //     fotoAdress: this.fotoAdress,
+            //     asscc: "test"
+            // }
+            axios.post('http://188.127.230.228/backend/querySum.php', fData, {
                 headers:{
                     'Content-Type': 'multipart/form-data'
                 }

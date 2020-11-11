@@ -1,13 +1,14 @@
 <template>
     <!--Кнопки сделать фото внутри шорткарточки-->
     <div class="button_zone">
-
-        <img v-if="tmpImage == null" src="../../public/media/img/backgroundimages/placeholderFoto.svg" class="placeholderFoto">
-        <img v-else class="placeholderFoto" v-bind:src="`http://formconstructor.ru//${tmpImage}`">
+        <label for="fotofile">
+            <img v-if="tmpImage == null" src="../../public/media/img/backgroundimages/placeholderFoto.svg" class="placeholderFoto">
+            <img v-else class="placeholderFoto" v-bind:src="`http://188.127.230.228/${tmpImage['path']}`">
+        </label>
         <label for="fotofile" class="fotoadd">
             <img src="../../public/media/img/galery.svg">&nbsp;Сделать или добавить фото
         </label>
-        <input type="file" id="fotofile" class="fotofile" @change="onFileSelected" multiple />
+        <input type="file" id="fotofile" name="fotofile" class="fotofile" @change="onFileSelected" multiple />
 
 
     </div>
@@ -23,7 +24,6 @@
             return{
                 selectedFile: null,
                 tmpImage: null
-
             }
         },
         methods:{
@@ -32,17 +32,19 @@
 
                 const fileData = new FormData();
                 fileData.append('image', this.selectedFile, this.selectedFile.name);
+                fileData.append('access', 'testtext');
 
-                console.log(fileData);
-                //ip поставлен в настройках openserver
-                axios.post('http://formconstructor.ru/query.php', fileData, {
+                //console.log(fileData);
+                //ip поставлен так как на серваке нет пока что домена
+                axios.post('http://188.127.230.228/backend/queryRout.php', fileData, {
                     headers:{
                         'Content-Type': 'multipart/form-data'
                     }
                 })
                 .then(res => {
-                    this.tmpImage = res.data
-                    localStorage.setItem('fotAdds', this.tmpImage);
+                    this.tmpImage = res.data;
+                    //console.log(this.tmpImage['path']);
+                    localStorage.setItem('fotAdds', this.tmpImage['path']);
                 })
 
 
@@ -89,7 +91,7 @@
 
     .placeholderFoto{
         width:10rem;
-        height:10rem;
+        min-height:10rem;
 
     }
 </style>
