@@ -13,6 +13,8 @@ abstract class CoreModel extends Model {
 
     protected $guarded = [];
 
+    protected $primaryKey = 'uuid';
+
     abstract static public function getPublicFields();
 
     abstract static public function getAdminFields();
