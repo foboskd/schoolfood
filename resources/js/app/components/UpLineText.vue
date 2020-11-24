@@ -1,8 +1,12 @@
 <template>
-    <div class="school_title">
-        <h1>МБОУ СШ №2</h1>
-        <p>г. Липецк, ул. Первомайская, д. 58</p>
-        {{ getSchool }}
+    <div class="school_title" v-if="getSchool">
+        <h1 v-if="getSchool.title">
+            {{ getSchool.title }}
+        </h1>
+
+        <p v-if="getSchool.address">
+            {{ getSchool.address }}
+        </p>
     </div>
 </template>
 

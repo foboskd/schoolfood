@@ -1,6 +1,6 @@
 <template>
-    <div>
-        404
+    <div class="center__message">
+        Школа не найдена
     </div>
 </template>
 
@@ -13,9 +13,5 @@
 </script>
 
 <style scoped>
-
-    .bacgroundsoup {
-        padding-top: 2rem;
-    }
 
 </style>

@@ -20,6 +20,9 @@ export default new Vuex.Store({
             axios.get(`${this.state.api}schools/${payload}`,)
                 .then(res => {
                     commit('setSchool', res.data);
+                })
+                .catch(error => {
+                    commit('setSchool', undefined);
                 });
         },
     },
