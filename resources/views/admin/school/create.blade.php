@@ -1,5 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos excepturi facere harum in qui sint. Adipisci asperiores aut, delectus enim magnam nam omnis perspiciatis quo saepe ullam. Soluta, voluptate.
+    <form action="/admin/schools" method="POST">
+        @csrf
+
+        <input type="text" name="title" placeholder="Название">
+        <input type="text" name="address" placeholder="Адрес">
+
+        <input type="submit" value="Создать">
+    </form>
 @endsection
