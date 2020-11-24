@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 3rem;
+}
+
+.container {
+    width: 60rem;
+    margin: auto;
+}
