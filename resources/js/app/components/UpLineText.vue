@@ -2,12 +2,18 @@
     <div class="school_title">
         <h1>МБОУ СШ №2</h1>
         <p>г. Липецк, ул. Первомайская, д. 58</p>
+        {{ getSchool }}
     </div>
 </template>
 
 <script>
     export default {
-        name: "UpLineText"
+        name: "UpLineText",
+        computed: {
+            getSchool() {
+                return this.$store.getters.getSchool;
+            }
+        }
     }
 </script>
 

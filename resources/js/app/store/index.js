@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios';
 
 Vue.use(Vuex)
 
@@ -14,8 +15,12 @@ export default new Vuex.Store({
         },
     },
     actions: {
-        requestContent: async function ({commit, getters}, payload) {
+        requestSchool: async function ({commit, getters}, payload) {
 
+            axios.get(`${this.state.api}schools/${payload}`,)
+                .then(res => {
+                    commit('setSchool', res.data);
+                });
         },
     },
     getters: {

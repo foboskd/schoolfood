@@ -1956,6 +1956,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    this.$store.dispatch('requestSchool', this.$route.params.school_uuid);
+
     if (localStorage.selectedFile) {
       this.test = localStorage.selectedFile;
     }
@@ -2333,8 +2335,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "UpLineText"
+  name: "UpLineText",
+  computed: {
+    getSchool: function getSchool() {
+      return this.$store.getters.getSchool;
+    }
+  }
 });
 
 /***/ }),
@@ -3115,7 +3123,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*школьный заголовок компонент*/\n.school_title[data-v-1882ae39] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n    padding-bottom: 1.5rem;\n}\n.school_title h1[data-v-1882ae39] {\n    font-size: 1.2rem;\n    font-weight: 700;\n    text-align: center;\n    font-family: ptrootuibold;\n    color: rgb(79, 79, 79);\n    margin: 0;\n}\n.school_title p[data-v-1882ae39] {\n    font-size: .8rem;\n    font-weight: 500;\n    text-align: center;\n    font-family: ptrootui;\n    color: rgb(79, 79, 79);\n    margin: 0;\n}\n\n/*школьный заголовок компонент, конец*/\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*школьный заголовок компонент*/\n.school_title[data-v-1882ae39] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n    padding-bottom: 1.5rem;\n}\n.school_title h1[data-v-1882ae39] {\n    font-size: 1.2rem;\n    font-weight: 700;\n    text-align: center;\n    font-family: ptrootuibold;\n    color: rgb(79, 79, 79);\n    margin: 0;\n}\n.school_title p[data-v-1882ae39] {\n    font-size: .8rem;\n    font-weight: 500;\n    text-align: center;\n    font-family: ptrootui;\n    color: rgb(79, 79, 79);\n    margin: 0;\n}\n\n/*школьный заголовок компонент, конец*/\n\n", ""]);
 
 // exports
 
@@ -5883,20 +5891,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "school_title" }, [
+    _c("h1", [_vm._v("МБОУ СШ №2")]),
+    _vm._v(" "),
+    _c("p", [_vm._v("г. Липецк, ул. Первомайская, д. 58")]),
+    _vm._v("\n    " + _vm._s(_vm.getSchool) + "\n")
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "school_title" }, [
-      _c("h1", [_vm._v("МБОУ СШ №2")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("г. Липецк, ул. Первомайская, д. 58")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -5919,7 +5921,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "CartArea",
+    "cart-area",
     [
       _c("div"),
       _vm._v(" "),
@@ -23800,11 +23802,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -23820,28 +23825,31 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     }
   },
   actions: {
-    requestContent: function () {
-      var _requestContent = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref, payload) {
+    requestSchool: function () {
+      var _requestSchool = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref, payload) {
         var commit, getters;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 commit = _ref.commit, getters = _ref.getters;
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(this.state.api, "schools/").concat(payload)).then(function (res) {
+                  commit('setSchool', res.data);
+                });
 
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, this);
       }));
 
-      function requestContent(_x, _x2) {
-        return _requestContent.apply(this, arguments);
+      function requestSchool(_x, _x2) {
+        return _requestSchool.apply(this, arguments);
       }
 
-      return requestContent;
+      return requestSchool;
     }()
   },
   getters: {

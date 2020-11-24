@@ -1,5 +1,5 @@
 <template>
-    <CartArea>
+    <cart-area>
         <div></div>
 
         <up-line-text></up-line-text>
@@ -20,7 +20,7 @@
         <button-action v-for="button of buttons"
                        :key="button.id"
                        v-bind:button="button"/>
-    </CartArea>
+    </cart-area>
 </template>
 
 <script>

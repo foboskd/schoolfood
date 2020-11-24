@@ -14,6 +14,7 @@
             }
         },
         mounted() {
+            this.$store.dispatch('requestSchool', this.$route.params.school_uuid);
             if (localStorage.selectedFile) {
                 this.test = localStorage.selectedFile;
             }
