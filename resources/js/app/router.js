@@ -5,21 +5,21 @@ import PartOne from './views/PartOne';
 import PartTwo from "./views/PartTwo";
 import PartThree from "./views/PartThree";
 import PartEnd from "./views/PartEnd";
-//import InPartOne from "./views/InPartOne";
+import NotFound404 from "./views/NotFound404";
 
 Vue.use(VueRouter);
 
 export default new VueRouter({
-    mode:'history',
-    routes:[
+    mode: 'history',
+    routes: [
         {
-            path: '/',
-            name: 'index',
+            path: '/review/:school_uuid',
+            name: 'Index',
             component: Index
         },
         {
-            path: '/part1',
-            name: 'partone',
+            path: '/review/:school_uuid/part_one',
+            name: 'PartOne',
             component: PartOne,
             // children:[{
             //     path:'inpartone',
@@ -27,19 +27,24 @@ export default new VueRouter({
             // }]
         },
         {
-            path: '/part2',
-            name: 'parttwo',
+            path: '/review/:school_uuid/part_two',
+            name: 'PartTwo',
             component: PartTwo
         },
         {
-            path: '/part3',
-            name: 'partthree',
+            path: '/review/:school_uuid/part_three',
+            name: 'PartThree',
             component: PartThree
         },
         {
-            path: '/end',
-            name: 'end',
+            path: '/review/:school_uuid/end',
+            name: 'End',
             component: PartEnd
-        }
+        },
+        {
+            path: '/*',
+            name: 'NotFound404',
+            component: NotFound404
+        },
     ]
 })
