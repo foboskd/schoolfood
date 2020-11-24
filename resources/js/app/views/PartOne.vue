@@ -1,35 +1,15 @@
 <template>
-    <div>
-        <up-arrow v-for="arrow of arrows"
-                  :key="arrow.id"
-                  :arrow="arrow"/>
+    <cart-area>
+        <back-cart-short/>
 
-        <UpLineText></UpLineText>
-        <CartArea>
-            <BackCartShort/>
-            <transition name="fadeCart">
-                <ShortCart v-bind:titleTexts="titleTexts" v-if="animFadeCart">
-                    <EstimationGoodBad></EstimationGoodBad>
-                </ShortCart>
-            </transition>
-            <ProgressPoint v-bind:points="points"></ProgressPoint>
-            <div v-if="eventActionFlag == null">
-                <ButtonAction v-for="button of buttons" :key="button.id" v-bind:button="button"></ButtonAction>
-            </div>
-            <div v-else-if="eventActionFlag == '1'">
-                <ButtonAction @click="animFadeCart = !animFadeCart" v-for="button of buttonsGoodWay" :key="button.id"
-                              v-bind:button="button"></ButtonAction>
-            </div>
-            <div v-else-if="eventActionFlag == '-1'">
-                <ButtonAction v-for="button of buttonBadWay" :key="button.id" v-bind:button="button"></ButtonAction>
-            </div>
-        </CartArea>
-    </div>
+        <short-cart :titleTexts="titleTexts" v-if="animFadeCart">
+            <estimation-good-bad/>
+        </short-cart>
+    </cart-area>
 </template>
 
 <script>
-    //import EstimationRating from "../components/EstimationRating";
-    //import EstimationRatingResult from "../components/EstimationRatingResult";
+
     import CartArea from "../components/CartArea";
     import BackCartShort from "../components/BackCartShort";
     import ShortCart from "../components/ShortCart";
@@ -75,6 +55,15 @@
         //         console.log(this.animFadeCart)
         //     });
         // },
+        mounted() {
+            this.$store.commit('setProgress', 1);
+            this.$store.commit('setButtonAction', {
+                isDisabled: true,
+                title: 'Проголосуй!',
+                routeName: 'PartTwo',
+                progress: 2
+            });
+        },
         created() {
             eventBus.$on('eventActionFlag', data => {
                 this.eventActionFlag = data.eventActionFlag;

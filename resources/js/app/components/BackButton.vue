@@ -10,7 +10,7 @@
 <script>
 
     export default {
-        name: "BackButton"
+        name: "BackButton",
     }
 
 </script>
@@ -20,6 +20,7 @@
     .arrow_back {
         position: absolute;
         top: .1rem;
+        left: 0;
         width: 100%;
     }
 
@@ -29,6 +30,14 @@
         align-items: center;
         justify-content: center;
         margin: 0;
+    }
+
+    .slide-enter-active, .slide-leave-active {
+        transition: top .35s;
+    }
+
+    .slide-enter, .slide-leave-to {
+        top: -1rem;
     }
 
 </style>

@@ -43,6 +43,7 @@
         height: 1.1rem;
         background-color: #DADADA;
         border-radius: 50%;
+        transition: .35s;
     }
 
     .pointColor {

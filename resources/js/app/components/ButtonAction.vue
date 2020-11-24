@@ -1,30 +1,10 @@
 <template>
     <article class="action-button_container" v-if="getButtonAction">
-        <router-link :to="getButtonAction.link" append>
+        <router-link :to="{name: getButtonAction.routeName}">
             <button class="action_button" :disabled="getButtonAction.isDisabled">
                 {{ getButtonAction.title }}
             </button>
         </router-link>
-
-
-        <!--<div class="wrapper_button" v-if="button.attributeStyleDisable == true">
-            <router-link :to="`${button.link}`">
-                <button disabled class="action_button">{{button.buttonTitle}}</button>
-            </router-link>
-        </div>
-
-        <div class="wrapper_button" v-else-if="button.attributeStyleDisable == false">
-            <router-link :to="`${button.link}`">
-                <button class="action_button" @click="animEvent">{{button.buttonTitle}}</button>
-            </router-link>
-        </div>
-
-        <div class="wrapper_button" v-else-if="!button.attributeStyleDisable">
-            &lt;!&ndash;<button class="action_button" @click="$router.push(`${button.link}`)">{{button.buttonTitle}}</button> сохранил на будещее тут альтернативная запись роутералинк в виде роутерпуш в онклике&ndash;&gt;
-            <router-link :to="`${button.link}`">
-                <button class="action_button" @click="animEvent">{{button.buttonTitle}}</button>
-            </router-link>
-        </div>-->
     </article>
 </template>
 
@@ -71,6 +51,7 @@
         font-size: 1.1rem;
         font-weight: 500;
         font-family: ptrootui;
+        transition: .35s;
     }
 
     .action_button:disabled {

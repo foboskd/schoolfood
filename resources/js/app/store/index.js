@@ -12,7 +12,8 @@ export default new Vuex.Store({
         buttonAction: {
             isDisabled: false,
             title: 'Начать',
-            link: 'part_one'
+            routeName: 'PartOne',
+            progress: 1
         },
 
         progress: {

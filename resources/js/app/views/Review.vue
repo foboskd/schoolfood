@@ -1,7 +1,9 @@
 <template>
     <div class="container">
 
-        <back-button v-if="$route.name !== 'ReviewIndex'"/>
+        <transition name="slide" mode="out-in">
+            <back-button v-if="getProgress.current !== 0"/>
+        </transition>
 
         <up-line-text/>
 
@@ -22,6 +24,11 @@
 
     export default {
         name: "Review",
+        computed: {
+            getProgress() {
+                return this.$store.getters.getProgress;
+            }
+        },
         components: {ProgressPoint, ButtonAction, UpLineText, BackButton}
     }
 

@@ -2048,26 +2048,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ButtonAction",
@@ -2440,6 +2420,15 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
+  mounted: function mounted() {
+    this.$store.commit('setProgress', 0);
+    this.$store.commit('setButtonAction', {
+      isDisabled: false,
+      title: 'Начать',
+      routeName: 'PartOne',
+      progress: 1
+    });
+  },
   components: {
     ProgressPoint: _components_ProgressPoint__WEBPACK_IMPORTED_MODULE_3__["default"],
     CartArea: _components_CartArea__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2670,27 +2659,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//import EstimationRating from "../components/EstimationRating";
-//import EstimationRatingResult from "../components/EstimationRatingResult";
 
 
 
@@ -2753,6 +2721,15 @@ __webpack_require__.r(__webpack_exports__);
   //         console.log(this.animFadeCart)
   //     });
   // },
+  mounted: function mounted() {
+    this.$store.commit('setProgress', 1);
+    this.$store.commit('setButtonAction', {
+      isDisabled: true,
+      title: 'Проголосуй!',
+      routeName: 'PartTwo',
+      progress: 2
+    });
+  },
   created: function created() {
     var _this = this;
 
@@ -3001,12 +2978,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Review",
+  computed: {
+    getProgress: function getProgress() {
+      return this.$store.getters.getProgress;
+    }
+  },
   components: {
     ProgressPoint: _components_ProgressPoint__WEBPACK_IMPORTED_MODULE_3__["default"],
     ButtonAction: _components_ButtonAction__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -3048,7 +3032,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.arrow_back[data-v-f88e0094] {\n    position: absolute;\n    top: .1rem;\n    width: 100%;\n}\n.arrow_back p[data-v-f88e0094] {\n    color: #F68741;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0;\n}\n\n", ""]);
+exports.push([module.i, "\n.arrow_back[data-v-f88e0094] {\n    position: absolute;\n    top: .1rem;\n    left: 0;\n    width: 100%;\n}\n.arrow_back p[data-v-f88e0094] {\n    color: #F68741;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0;\n}\n.slide-enter-active[data-v-f88e0094], .slide-leave-active[data-v-f88e0094] {\n    transition: top .35s;\n}\n.slide-enter[data-v-f88e0094], .slide-leave-to[data-v-f88e0094] {\n    top: -1rem;\n}\n\n", ""]);
 
 // exports
 
@@ -3086,7 +3070,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.wrapper_button[data-v-12ff2005] {\n    margin: 0 auto;\n    max-width: 18rem;\n}\n.action-button_container[data-v-12ff2005] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n}\n.action_button[data-v-12ff2005] {\n    width: 100%;\n    background-color: #FF5F33;\n    border-radius: .6rem;\n    border: 0px;\n    height: 3.25rem;\n    color: #fff;\n    font-size: 1.1rem;\n    font-weight: 500;\n    font-family: ptrootui;\n}\n.action_button[data-v-12ff2005]:disabled {\n    background-color: #adacac;\n    color: black;\n}\n\n", ""]);
+exports.push([module.i, "\n.wrapper_button[data-v-12ff2005] {\n    margin: 0 auto;\n    max-width: 18rem;\n}\n.action-button_container[data-v-12ff2005] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n}\n.action_button[data-v-12ff2005] {\n    width: 100%;\n    background-color: #FF5F33;\n    border-radius: .6rem;\n    border: 0px;\n    height: 3.25rem;\n    color: #fff;\n    font-size: 1.1rem;\n    font-weight: 500;\n    font-family: ptrootui;\n    transition: .35s;\n}\n.action_button[data-v-12ff2005]:disabled {\n    background-color: #adacac;\n    color: black;\n}\n\n", ""]);
 
 // exports
 
@@ -3162,7 +3146,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.progresspoint_container[data-v-13751fb6] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n}\n.wrapper_point[data-v-13751fb6] {\n    width: 5rem;\n    margin: 0 auto;\n    display: flex;\n    justify-content: space-around;\n    padding-top: 2.6rem;\n    padding-bottom: 1.6rem;\n}\n.point[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: #DADADA;\n    border-radius: 50%;\n}\n.pointColor[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: rgb(255, 95, 51);\n    border-radius: 50%;\n}\n\n", ""]);
+exports.push([module.i, "\n.progresspoint_container[data-v-13751fb6] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n}\n.wrapper_point[data-v-13751fb6] {\n    width: 5rem;\n    margin: 0 auto;\n    display: flex;\n    justify-content: space-around;\n    padding-top: 2.6rem;\n    padding-bottom: 1.6rem;\n}\n.point[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: #DADADA;\n    border-radius: 50%;\n    transition: .35s;\n}\n.pointColor[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: rgb(255, 95, 51);\n    border-radius: 50%;\n}\n\n", ""]);
 
 // exports
 
@@ -5710,7 +5694,7 @@ var render = function() {
         [
           _c(
             "router-link",
-            { attrs: { to: _vm.getButtonAction.link, append: "" } },
+            { attrs: { to: { name: _vm.getButtonAction.routeName } } },
             [
               _c(
                 "button",
@@ -6249,81 +6233,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "cart-area",
     [
-      _vm._l(_vm.arrows, function(arrow) {
-        return _c("up-arrow", { key: arrow.id, attrs: { arrow: arrow } })
-      }),
+      _c("back-cart-short"),
       _vm._v(" "),
-      _c("UpLineText"),
-      _vm._v(" "),
-      _c(
-        "CartArea",
-        [
-          _c("BackCartShort"),
-          _vm._v(" "),
-          _c(
-            "transition",
-            { attrs: { name: "fadeCart" } },
-            [
-              _vm.animFadeCart
-                ? _c(
-                    "ShortCart",
-                    { attrs: { titleTexts: _vm.titleTexts } },
-                    [_c("EstimationGoodBad")],
-                    1
-                  )
-                : _vm._e()
-            ],
+      _vm.animFadeCart
+        ? _c(
+            "short-cart",
+            { attrs: { titleTexts: _vm.titleTexts } },
+            [_c("estimation-good-bad")],
             1
-          ),
-          _vm._v(" "),
-          _c("ProgressPoint", { attrs: { points: _vm.points } }),
-          _vm._v(" "),
-          _vm.eventActionFlag == null
-            ? _c(
-                "div",
-                _vm._l(_vm.buttons, function(button) {
-                  return _c("ButtonAction", {
-                    key: button.id,
-                    attrs: { button: button }
-                  })
-                }),
-                1
-              )
-            : _vm.eventActionFlag == "1"
-            ? _c(
-                "div",
-                _vm._l(_vm.buttonsGoodWay, function(button) {
-                  return _c("ButtonAction", {
-                    key: button.id,
-                    attrs: { button: button },
-                    on: {
-                      click: function($event) {
-                        _vm.animFadeCart = !_vm.animFadeCart
-                      }
-                    }
-                  })
-                }),
-                1
-              )
-            : _vm.eventActionFlag == "-1"
-            ? _c(
-                "div",
-                _vm._l(_vm.buttonBadWay, function(button) {
-                  return _c("ButtonAction", {
-                    key: button.id,
-                    attrs: { button: button }
-                  })
-                }),
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
+          )
+        : _vm._e()
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -6468,7 +6391,12 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _vm.$route.name !== "ReviewIndex" ? _c("back-button") : _vm._e(),
+      _c(
+        "transition",
+        { attrs: { name: "slide", mode: "out-in" } },
+        [_vm.getProgress.current !== 0 ? _c("back-button") : _vm._e()],
+        1
+      ),
       _vm._v(" "),
       _c("up-line-text"),
       _vm._v(" "),
@@ -24078,7 +24006,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     buttonAction: {
       isDisabled: false,
       title: 'Начать',
-      link: 'part_one'
+      routeName: 'PartOne',
+      progress: 1
     },
     progress: {
       total: 3,
