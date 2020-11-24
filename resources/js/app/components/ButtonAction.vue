@@ -1,7 +1,13 @@
 <template>
-    <!--кнопка далее-->
-    <article class="actionbutton_container">
-        <div class="wrapper_button" v-if="button.attributeStyleDisable == true">
+    <article class="action-button_container" v-if="getButtonAction">
+        <router-link :to="getButtonAction.link" append>
+            <button class="action_button" :disabled="getButtonAction.isDisabled">
+                {{ getButtonAction.title }}
+            </button>
+        </router-link>
+
+
+        <!--<div class="wrapper_button" v-if="button.attributeStyleDisable == true">
             <router-link :to="`${button.link}`">
                 <button disabled class="action_button">{{button.buttonTitle}}</button>
             </router-link>
@@ -14,21 +20,25 @@
         </div>
 
         <div class="wrapper_button" v-else-if="!button.attributeStyleDisable">
-            <!--<button class="action_button" @click="$router.push(`${button.link}`)">{{button.buttonTitle}}</button> сохранил на будещее тут альтернативная запись роутералинк в виде роутерпуш в онклике-->
+            &lt;!&ndash;<button class="action_button" @click="$router.push(`${button.link}`)">{{button.buttonTitle}}</button> сохранил на будещее тут альтернативная запись роутералинк в виде роутерпуш в онклике&ndash;&gt;
             <router-link :to="`${button.link}`">
                 <button class="action_button" @click="animEvent">{{button.buttonTitle}}</button>
             </router-link>
-        </div>
+        </div>-->
     </article>
 </template>
 
 <script>
+
     import {eventBus} from "../main";
 
     export default {
-        props: ['button'],
         name: "ButtonAction",
-        fadeCart: true,
+        computed: {
+            getButtonAction() {
+                return this.$store.getters.getButtonAction;
+            }
+        },
         methods: {
             animEvent() {
                 this.fadeCart = false;
@@ -39,13 +49,13 @@
 </script>
 
 <style scoped>
-    /*кнопка далее*/
+
     .wrapper_button {
         margin: 0 auto;
         max-width: 18rem;
     }
 
-    .actionbutton_container {
+    .action-button_container {
         max-width: 18rem;
         width: 100%;
         margin: 0 auto;
@@ -67,4 +77,5 @@
         background-color: #adacac;
         color: black;
     }
+
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="center__message">
-        Школа не найдена
+        <h3>Школа не найдена</h3>
     </div>
 </template>
 

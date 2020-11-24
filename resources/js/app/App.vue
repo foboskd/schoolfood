@@ -1,12 +1,11 @@
 <template>
     <div id="app">
         <transition name="fade" mode="out-in">
-            <!--<router-view v-if="getSchool"></router-view>-->
+            <router-view v-if="getSchool"></router-view>
 
-            <!--<loading v-else-if="getSchool === null"/>-->
-            <loading/>
+            <loading v-else-if="getSchool === null"/>
 
-            <!--<not-found404 v-else-if="getSchool === undefined"/>-->
+            <not-found404 v-else-if="getSchool === undefined"/>
         </transition>
     </div>
 </template>

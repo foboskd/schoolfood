@@ -35,7 +35,7 @@
     import ProgressPoint from "../components/ProgressPoint";
     import ButtonAction from "../components/ButtonAction";
     import UpLineText from "../components/UpLineText";
-    import UpArrow from "../components/UpArrow";
+    import UpArrow from "../components/BackButton";
 
     export default {
         name: "PartThree",

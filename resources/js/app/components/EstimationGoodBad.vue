@@ -5,14 +5,16 @@
                 <transition name="estimationBadAnimate">
                     <img v-if="showEstimationBad" :src="'/media/img/' + pathImageBad" class="badEstimation">
                 </transition>
-                <input type="radio" name="estimationWrapperPoint" class="radioEstimation" aria-label="Плохо" @change="getEstimation" value="-1">
+                <input type="radio" name="estimationWrapperPoint" class="radioEstimation" aria-label="Плохо"
+                       @change="getEstimation" value="-1">
             </label>
 
             <label class="estimationWrapperPoint" @click="showEstimationGood = !showEstimationGood">
                 <transition name="estimationGoodAnimate">
                     <img v-if="showEstimationGood" :src="'/media/img/' + pathImageGood" class="goodEstimation">
                 </transition>
-                <input type="radio" name="estimationWrapperPoint" class="radioEstimation" aria-label="Классно" @change="getEstimation" value="1">
+                <input type="radio" name="estimationWrapperPoint" class="radioEstimation" aria-label="Классно"
+                       @change="getEstimation" value="1">
             </label>
         </fieldset>
         <div class="textAnswer">
@@ -29,19 +31,19 @@
 
     export default {
         name: "EstimationGoodBad",
-        data(){
-          return{
-              pathImageBad: "badestimationgrey.svg",
-              pathImageGood: "goodestimationgrey.svg",
-              addFirstString: "Выбери,",
-              addSecondString: "как тебе еда в столовой?",
-              showEstimationBad: true,
-              showEstimationGood: true
-          }
+        data() {
+            return {
+                pathImageBad: "badestimationgrey.svg",
+                pathImageGood: "goodestimationgrey.svg",
+                addFirstString: "Выбери,",
+                addSecondString: "как тебе еда в столовой?",
+                showEstimationBad: true,
+                showEstimationGood: true
+            }
         },
-        methods:{
-            getEstimation(event){
-                if (event.target.value == 1){
+        methods: {
+            getEstimation(event) {
+                if (event.target.value == 1) {
                     this.pathImageGood = "goodestimationcolor.svg";
                     this.pathImageBad = "badestimationgrey.svg";
                     this.addFirstString = "Мне понравилось!";
@@ -49,7 +51,7 @@
                     localStorage.setItem('countEstimation', event.target.value)
                     eventBus.$emit('eventActionFlag', {eventActionFlag: event.target.value}) // установил сохранение события в эвент бас для изменения пользовательского пути в зависимости от выбора
                 }
-                else{
+                else {
                     this.pathImageGood = "goodestimationgrey.svg";
                     this.pathImageBad = "badestimationcolor.svg";
                     this.addFirstString = "Мне не понравилось!";
@@ -65,52 +67,56 @@
 
 <style scoped>
 
-    .goodBadEstimation{
-        width:12.5rem;
-        display:flex;
-        justify-content:space-between;
-        padding:0;
-        margin:0;
-        border:none;
-    }
-    .estimationWrapperPoint{
-        display:flex;
-        flex-direction:column
-    }
-    .radioEstimation{
-        visibility:hidden;
+    .goodBadEstimation {
+        width: 12.5rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        border: none;
     }
 
-    .textAnswer{
-        padding-top:.5rem;
-        color:#4F4F4F;
+    .estimationWrapperPoint {
+        display: flex;
+        flex-direction: column
     }
 
-    .textAnswer p{
-        margin:0;
-        min-height:1rem;
-        text-align:center;
+    .radioEstimation {
+        visibility: hidden;
     }
 
-    .estimationBadAnimate-enter-active{
+    .textAnswer {
+        padding-top: .5rem;
+        color: #4F4F4F;
+    }
+
+    .textAnswer p {
+        margin: 0;
+        min-height: 1rem;
+        text-align: center;
+    }
+
+    .estimationBadAnimate-enter-active {
         animation: bounce-in .5s;
     }
+
     .estimationBadAnimate-leave-active {
         animation: bounce-in .5s reverse;
     }
-    .estimationGoodAnimate-enter-active{
+
+    .estimationGoodAnimate-enter-active {
         animation: bounce-in .5s;
     }
+
     .estimationGoodAnimate-leave-active {
         animation: bounce-in .5s reverse;
     }
 
-
     @keyframes bounce-in {
-        0%{
+        0% {
             transform: scale(0);
         }
-        50%{
+        50% {
             transform: scale(1.2);
         }
     }

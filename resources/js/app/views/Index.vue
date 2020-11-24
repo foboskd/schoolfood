@@ -1,29 +1,18 @@
 <template>
-    <cart-area>
-        <div></div>
-
-        <up-line-text></up-line-text>
-
-        <CartArea>
+        <cart-area>
             <back-cart-short/>
 
             <short-cart>
                 <h1>Помоги нам сделать<br> твои обеды лучше</h1>
-                <div class="bacgroundsoup">
+                <div class="bakcgroundsoup">
                     <img src="/media/img/soupindex.svg" class="circul_backgroundgirl">
                 </div>
             </short-cart>
-        </CartArea>
-
-        <progress-point v-bind:points="points"/>
-
-        <button-action v-for="button of buttons"
-                       :key="button.id"
-                       v-bind:button="button"/>
-    </cart-area>
+        </cart-area>
 </template>
 
 <script>
+
     import CartArea from '../components/CartArea';
     import BackCartShort from '../components/BackCartShort';
     import ShortCart from '../components/ShortCart';
@@ -61,7 +50,9 @@
 </script>
 
 <style scoped>
-    .bacgroundsoup {
+
+    .bakcgroundsoup {
         padding-top: 2rem;
     }
+
 </style>
