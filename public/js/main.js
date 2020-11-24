@@ -5068,7 +5068,12 @@ var render = function() {
               _vm._v(" твои обеды лучше")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "bacgroundsoup" })
+            _c("div", { staticClass: "bacgroundsoup" }, [
+              _c("img", {
+                staticClass: "circul_backgroundgirl",
+                attrs: { src: "/media/img/soupindex.svg" }
+              })
+            ])
           ])
         ],
         1

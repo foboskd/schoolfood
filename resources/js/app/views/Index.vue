@@ -7,7 +7,7 @@
             <ShortCart>
                     <h1>Помоги нам сделать<br> твои обеды лучше</h1>
                     <div class="bacgroundsoup">
-                        <!--<img src="@/assets/img/soupindex.svg" class="circul_backgroundgirl">-->
+                        <img src="/media/img/soupindex.svg" class="circul_backgroundgirl">
                     </div>
             </ShortCart>
         </CartArea>

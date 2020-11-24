@@ -6,6 +6,8 @@
 
     <title>Laravel</title>
 
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
 </head>
 <body>
 <div id="app"></div>
