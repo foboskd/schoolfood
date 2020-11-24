@@ -7,7 +7,7 @@
             <ShortCart
                     v-bind:titleTexts="titleTexts"
             >
-                <!--<img src="../../public/media/img/backgroundimages/thanks.svg">-->
+                <img src="/media/img/backgroundimages/thanks.svg">
 
             </ShortCart>
             <ProgressPoint

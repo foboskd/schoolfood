@@ -3,14 +3,14 @@
         <fieldset class="goodBadEstimation">
             <label class="estimationWrapperPoint" @click="showEstimationBad = !showEstimationBad">
                 <transition name="estimationBadAnimate">
-                    <!--<img v-if="showEstimationBad" :src="require('../../public/media/img/' + pathImageBad)" class="badEstimation">-->
+                    <img v-if="showEstimationBad" :src="'/media/img/' + pathImageBad" class="badEstimation">
                 </transition>
                 <input type="radio" name="estimationWrapperPoint" class="radioEstimation" aria-label="Плохо" @change="getEstimation" value="-1">
             </label>
 
             <label class="estimationWrapperPoint" @click="showEstimationGood = !showEstimationGood">
                 <transition name="estimationGoodAnimate">
-                    <!--<img v-if="showEstimationGood" :src="require('../../public/media/img/' + pathImageGood)" class="goodEstimation">-->
+                    <img v-if="showEstimationGood" :src="'/media/img/' + pathImageGood" class="goodEstimation">
                 </transition>
                 <input type="radio" name="estimationWrapperPoint" class="radioEstimation" aria-label="Классно" @change="getEstimation" value="1">
             </label>

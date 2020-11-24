@@ -1,7 +1,7 @@
 <template>
     <!--стрелочка-->
     <div class="arrow_back" @click = "$router.push(`${arrow.link}`)">
-        <!--<p><img src="media/img/arrow_back.svg"> Назад</p>-->
+        <p><img src="/media/img/arrow_back.svg"> Назад</p>
     </div>
 </template>
 

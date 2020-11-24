@@ -3,8 +3,8 @@
         <div class="desck_card_front">
             <h1>Помоги нам сделать<br> твои обеды лучше</h1>
             <div class="circul">
-                <!--<img src="../../public/media/img/soupindex.svg" class="circul_backgroundgirl">
-                <img src="../../public/media/img/backgroundimages/circle.svg" class="circul_backgroundcircle">-->
+                <img src="/media/img/soupindex.svg" class="circul_backgroundgirl">
+                <img src="/media/img/backgroundimages/circle.svg" class="circul_backgroundcircle">
             </div>
         </div>
 </template>

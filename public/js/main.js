@@ -4786,7 +4786,14 @@ var render = function() {
           }
         },
         [
-          _c("transition", { attrs: { name: "estimationBadAnimate" } }),
+          _c("transition", { attrs: { name: "estimationBadAnimate" } }, [
+            _vm.showEstimationBad
+              ? _c("img", {
+                  staticClass: "badEstimation",
+                  attrs: { src: "/media/img/" + _vm.pathImageBad }
+                })
+              : _vm._e()
+          ]),
           _vm._v(" "),
           _c("input", {
             staticClass: "radioEstimation",
@@ -4813,7 +4820,14 @@ var render = function() {
           }
         },
         [
-          _c("transition", { attrs: { name: "estimationGoodAnimate" } }),
+          _c("transition", { attrs: { name: "estimationGoodAnimate" } }, [
+            _vm.showEstimationGood
+              ? _c("img", {
+                  staticClass: "goodEstimation",
+                  attrs: { src: "/media/img/" + _vm.pathImageGood }
+                })
+              : _vm._e()
+          ]),
           _vm._v(" "),
           _c("input", {
             staticClass: "radioEstimation",
@@ -4983,16 +4997,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    staticClass: "arrow_back",
-    on: {
-      click: function($event) {
-        return _vm.$router.push("" + _vm.arrow.link)
+  return _c(
+    "div",
+    {
+      staticClass: "arrow_back",
+      on: {
+        click: function($event) {
+          return _vm.$router.push("" + _vm.arrow.link)
+        }
       }
-    }
-  })
+    },
+    [_vm._m(0)]
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("img", { attrs: { src: "/media/img/arrow_back.svg" } }),
+      _vm._v(" Назад")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -5120,7 +5148,11 @@ var render = function() {
         [
           _c("BackCartShort"),
           _vm._v(" "),
-          _c("ShortCart", { attrs: { titleTexts: _vm.titleTexts } }),
+          _c("ShortCart", { attrs: { titleTexts: _vm.titleTexts } }, [
+            _c("img", {
+              attrs: { src: "/media/img/backgroundimages/thanks.svg" }
+            })
+          ]),
           _vm._v(" "),
           _c("ProgressPoint", { attrs: { points: _vm.points } }),
           _vm._v(" "),
