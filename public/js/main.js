@@ -2963,6 +2963,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_UpLineText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/UpLineText */ "./resources/js/app/components/UpLineText.vue");
 /* harmony import */ var _components_ButtonAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ButtonAction */ "./resources/js/app/components/ButtonAction.vue");
 /* harmony import */ var _components_ProgressPoint__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProgressPoint */ "./resources/js/app/components/ProgressPoint.vue");
+/* harmony import */ var _components_BackCartShort__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/BackCartShort */ "./resources/js/app/components/BackCartShort.vue");
 //
 //
 //
@@ -2980,6 +2981,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2992,6 +3000,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
+    BackCartShort: _components_BackCartShort__WEBPACK_IMPORTED_MODULE_4__["default"],
     ProgressPoint: _components_ProgressPoint__WEBPACK_IMPORTED_MODULE_3__["default"],
     ButtonAction: _components_ButtonAction__WEBPACK_IMPORTED_MODULE_2__["default"],
     UpLineText: _components_UpLineText__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -3032,7 +3041,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.arrow_back[data-v-f88e0094] {\n    position: absolute;\n    top: .1rem;\n    left: 0;\n    width: 100%;\n}\n.arrow_back p[data-v-f88e0094] {\n    color: #F68741;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0;\n}\n.slide-enter-active[data-v-f88e0094], .slide-leave-active[data-v-f88e0094] {\n    transition: top .35s;\n}\n.slide-enter[data-v-f88e0094], .slide-leave-to[data-v-f88e0094] {\n    top: -1rem;\n}\n\n", ""]);
+exports.push([module.i, "\n.arrow_back[data-v-f88e0094] {\n    position: absolute;\n    top: .1rem;\n    left: 0;\n    width: 100%;\n}\n.arrow_back p[data-v-f88e0094] {\n    color: #F68741;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0;\n}\n\n", ""]);
 
 // exports
 
@@ -3051,7 +3060,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n/*компонент задняя карта, конец*/\n.desck_shortcard_back[data-v-bdd18930]{\n    width:16rem;\n    height:23rem;\n    margin:0 auto;\n    padding-bottom:1rem;\n    background-color:#ffff;\n    box-shadow: 0px -5px 15px 2px rgba(0, 0, 0, 0.1);\n    border-radius: 1.25rem;\n    position: relative;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n/*компонент задняя карта, конец*/\n.desck_shortcard_back[data-v-bdd18930]{\n    max-width: 18rem;\n    width: 100%;\n    height: 21rem;\n    margin:0 auto;\n    top: -2.5rem;\n    padding-bottom:1rem;\n    background-color:#ffff;\n    box-shadow: 0px -5px 15px 2px rgba(0, 0, 0, 0.1);\n    border-radius: 1.25rem;\n    position: relative;\n    transform: scale(.75);\n}\n", ""]);
 
 // exports
 
@@ -3146,7 +3155,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.progresspoint_container[data-v-13751fb6] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n}\n.wrapper_point[data-v-13751fb6] {\n    width: 5rem;\n    margin: 0 auto;\n    display: flex;\n    justify-content: space-around;\n    padding-top: 2.6rem;\n    padding-bottom: 1.6rem;\n}\n.point[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: #DADADA;\n    border-radius: 50%;\n    transition: .35s;\n}\n.pointColor[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: rgb(255, 95, 51);\n    border-radius: 50%;\n}\n\n", ""]);
+exports.push([module.i, "\n.progresspoint_container[data-v-13751fb6] {\n    max-width: 18rem;\n    width: 100%;\n    margin: 0 auto;\n}\n.wrapper_point[data-v-13751fb6] {\n    width: 5rem;\n    margin: 0 auto;\n    display: flex;\n    justify-content: space-around;\n    padding: 1.6rem 0;\n}\n.point[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: #DADADA;\n    border-radius: 50%;\n    transition: .35s;\n}\n.pointColor[data-v-13751fb6] {\n    width: 1.1rem;\n    height: 1.1rem;\n    background-color: rgb(255, 95, 51);\n    border-radius: 50%;\n}\n\n", ""]);
 
 // exports
 
@@ -3165,7 +3174,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*компонент с карточками, версия шорт*/\n.desck_shortcard_front[data-v-3ac7ff0f] {\n    max-width: 18rem;\n    width: 100%;\n    height: 21rem;\n    margin: 0 auto;\n    padding-top: 1.2rem;\n    padding-bottom: 1.2rem;\n    background-color: #ffff;\n    box-shadow: 0px -5px 15px 2px rgba(0, 0, 0, 0.1);\n    border-radius: 1.25rem;\n    position: absolute;\n    top: 1.8rem;\n}\n.desck_shortcard_front h1[data-v-3ac7ff0f] {\n    text-align: center;\n    font-family: ptrootuibold;\n    font-size: 1.1rem;\n    font-style: normal;\n    font-weight: 800;\n    color: rgb(79, 79, 79);\n    margin: 0;\n}\n.wrapper_actionzone[data-v-3ac7ff0f] {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    height: 18rem;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*компонент с карточками, версия шорт*/\n.desck_shortcard_front[data-v-3ac7ff0f] {\n    max-width: 18rem;\n    width: 100%;\n    height: 21rem;\n    margin: 0 auto;\n    padding-top: 1.2rem;\n    padding-bottom: 1.2rem;\n    background-color: #ffff;\n    box-shadow: 0px -5px 15px 2px rgba(0, 0, 0, 0.1);\n    border-radius: 1.25rem;\n    position: absolute;\n    top: 2rem;\n}\n.desck_shortcard_front h1[data-v-3ac7ff0f] {\n    text-align: center;\n    font-family: ptrootuibold;\n    font-size: 1.1rem;\n    font-style: normal;\n    font-weight: 800;\n    color: rgb(79, 79, 79);\n    margin: 0;\n}\n.wrapper_actionzone[data-v-3ac7ff0f] {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    height: 18rem;\n}\n", ""]);
 
 // exports
 
@@ -3279,7 +3288,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.container[data-v-dfe1df36] {\n    max-width: 18rem;\n    margin: auto;\n}\n\n", ""]);
+exports.push([module.i, "\n.container[data-v-dfe1df36] {\n    max-width: 18rem;\n    margin: auto;\n}\n.cart_area[data-v-dfe1df36] {\n    position: relative;\n    height: 25.4rem;\n}\n.slide-enter-active[data-v-dfe1df36], .slide-leave-active[data-v-dfe1df36] {\n    transition: top .35s;\n}\n.slide-enter[data-v-dfe1df36], .slide-leave-to[data-v-dfe1df36] {\n    top: -1rem;\n}\n.card-slide-enter-active[data-v-dfe1df36], .card-slide-leave-active[data-v-dfe1df36] {\n    transition: 1s;\n}\n.card-slide-enter[data-v-dfe1df36] {\n    transform: scale(.75);\n    top: -2.5rem !important;\n}\n.card-slide-enter-to[data-v-dfe1df36] {\n    transform: scale(1);\n    top: 1.8rem;\n}\n\n/*.card-slide-enter, .card-slide-enter-active {\n    transform: scale(.75);\n    top: -2rem;\n}*/\n.card-slide-leave-active[data-v-dfe1df36] {\n    z-index: 100;\n}\n.card-slide-leave-to[data-v-dfe1df36] {\n    transform: translateX(-200%) rotateZ(-45deg);\n    opacity: 0;\n}\n\n", ""]);
 
 // exports
 
@@ -6059,28 +6068,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "cart-area",
-    [
-      _c("back-cart-short"),
-      _vm._v(" "),
-      _c("short-cart", [
-        _c("h1", [
-          _vm._v("Помоги нам сделать"),
-          _c("br"),
-          _vm._v(" твои обеды лучше")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "bakcgroundsoup" }, [
-          _c("img", {
-            staticClass: "circul_backgroundgirl",
-            attrs: { src: "/media/img/soupindex.svg" }
-          })
-        ])
-      ])
-    ],
-    1
-  )
+  return _c("short-cart", [
+    _c("h1", [
+      _vm._v("Помоги нам сделать"),
+      _c("br"),
+      _vm._v(" твои обеды лучше")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bakcgroundsoup" }, [
+      _c("img", {
+        staticClass: "circul_backgroundgirl",
+        attrs: { src: "/media/img/soupindex.svg" }
+      })
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -6232,22 +6233,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "cart-area",
-    [
-      _c("back-cart-short"),
-      _vm._v(" "),
-      _vm.animFadeCart
-        ? _c(
-            "short-cart",
-            { attrs: { titleTexts: _vm.titleTexts } },
-            [_c("estimation-good-bad")],
-            1
-          )
-        : _vm._e()
-    ],
-    1
-  )
+  return _vm.animFadeCart
+    ? _c(
+        "short-cart",
+        { attrs: { titleTexts: _vm.titleTexts } },
+        [_c("estimation-good-bad")],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -6400,7 +6393,21 @@ var render = function() {
       _vm._v(" "),
       _c("up-line-text"),
       _vm._v(" "),
-      _c("router-view"),
+      _c(
+        "div",
+        { staticClass: "cart_area" },
+        [
+          _c("back-cart-short"),
+          _vm._v(" "),
+          _c(
+            "transition",
+            { attrs: { name: "card-slide" } },
+            [_c("router-view")],
+            1
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("progress-point"),
       _vm._v(" "),

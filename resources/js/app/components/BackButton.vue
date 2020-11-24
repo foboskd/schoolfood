@@ -32,12 +32,4 @@
         margin: 0;
     }
 
-    .slide-enter-active, .slide-leave-active {
-        transition: top .35s;
-    }
-
-    .slide-enter, .slide-leave-to {
-        top: -1rem;
-    }
-
 </style>

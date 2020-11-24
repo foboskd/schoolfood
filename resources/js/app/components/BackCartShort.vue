@@ -12,13 +12,16 @@
 <style scoped>
     /*компонент задняя карта, конец*/
     .desck_shortcard_back{
-        width:16rem;
-        height:23rem;
+        max-width: 18rem;
+        width: 100%;
+        height: 21rem;
         margin:0 auto;
+        top: -2.5rem;
         padding-bottom:1rem;
         background-color:#ffff;
         box-shadow: 0px -5px 15px 2px rgba(0, 0, 0, 0.1);
         border-radius: 1.25rem;
         position: relative;
+        transform: scale(.75);
     }
 </style>

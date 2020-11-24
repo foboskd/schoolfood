@@ -1,11 +1,11 @@
 <template>
-    <cart-area>
-        <back-cart-short/>
+    <!--<cart-area>-->
+    <!--<back-cart-short/>-->
 
-        <short-cart :titleTexts="titleTexts" v-if="animFadeCart">
-            <estimation-good-bad/>
-        </short-cart>
-    </cart-area>
+    <short-cart :titleTexts="titleTexts" v-if="animFadeCart">
+        <estimation-good-bad/>
+    </short-cart>
+    <!--</cart-area>-->
 </template>
 
 <script>
@@ -84,6 +84,7 @@
 </script>
 
 <style scoped>
+
     .fadeCart-enter-active {
         animation: bounce-in .5s;
         transition: all 400ms ease-out;

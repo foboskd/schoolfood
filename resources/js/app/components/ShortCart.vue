@@ -37,7 +37,7 @@
         box-shadow: 0px -5px 15px 2px rgba(0, 0, 0, 0.1);
         border-radius: 1.25rem;
         position: absolute;
-        top: 1.8rem;
+        top: 2rem;
     }
 
     .desck_shortcard_front h1 {

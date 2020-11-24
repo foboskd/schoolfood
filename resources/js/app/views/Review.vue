@@ -7,7 +7,13 @@
 
         <up-line-text/>
 
-        <router-view></router-view>
+        <div class="cart_area">
+            <back-cart-short/>
+
+            <transition name="card-slide">
+                <router-view></router-view>
+            </transition>
+        </div>
 
         <progress-point/>
 
@@ -21,6 +27,7 @@
     import UpLineText from "../components/UpLineText";
     import ButtonAction from "../components/ButtonAction";
     import ProgressPoint from "../components/ProgressPoint";
+    import BackCartShort from "../components/BackCartShort";
 
     export default {
         name: "Review",
@@ -29,7 +36,7 @@
                 return this.$store.getters.getProgress;
             }
         },
-        components: {ProgressPoint, ButtonAction, UpLineText, BackButton}
+        components: {BackCartShort, ProgressPoint, ButtonAction, UpLineText, BackButton}
     }
 
 </script>
@@ -39,6 +46,47 @@
     .container {
         max-width: 18rem;
         margin: auto;
+    }
+
+    .cart_area {
+        position: relative;
+        height: 25.4rem;
+    }
+
+    .slide-enter-active, .slide-leave-active {
+        transition: top .35s;
+    }
+
+    .slide-enter, .slide-leave-to {
+        top: -1rem;
+    }
+
+    .card-slide-enter-active, .card-slide-leave-active {
+        transition: 1s;
+    }
+
+    .card-slide-enter {
+        transform: scale(.75);
+        top: -2.5rem !important;
+    }
+
+    .card-slide-enter-to {
+        transform: scale(1);
+        top: 1.8rem;
+    }
+
+    /*.card-slide-enter, .card-slide-enter-active {
+        transform: scale(.75);
+        top: -2rem;
+    }*/
+
+    .card-slide-leave-active {
+        z-index: 100;
+    }
+
+    .card-slide-leave-to {
+        transform: translateX(-200%) rotateZ(-45deg);
+        opacity: 0;
     }
 
 </style>

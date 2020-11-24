@@ -34,8 +34,7 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-around;
-        padding-top: 2.6rem;
-        padding-bottom: 1.6rem;
+        padding: 1.6rem 0;
     }
 
     .point {
