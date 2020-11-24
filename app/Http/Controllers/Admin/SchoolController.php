@@ -15,8 +15,8 @@ class SchoolController extends Controller {
     }
 
     public function create() {
-//        return view('admin.school.create');
-        return view('admin.review.create');
+        return view('admin.school.create');
+//        return view('admin.review.create');
     }
 
     public function store(CreateSchoolRequest $request) {

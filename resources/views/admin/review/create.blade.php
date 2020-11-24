@@ -4,7 +4,7 @@
 
     {{ $errors }}
 
-    <form action="/api/schools/2d81a41a-06a6-4acd-9ed2-f959bebfc3a6/review" method="POST" enctype="multipart/form-data">
+    <form action="/api/schools/1d81a41a-06a6-4acd-9ed2-f959bebfc3a6/review" method="POST" enctype="multipart/form-data">
         @csrf
 
         <textarea name="text">

@@ -14,6 +14,16 @@ class ReviewBuilder extends CoreBuilder {
         return $this;
     }
 
+    public function setSchoolUuid($uuid): CoreBuilder {
+        try {
+            $this->model->school_uuid = $uuid;
+
+            return $this;
+        } catch (\Exception $e) {
+            abort(404);
+        }
+    }
+
     public function setFile($file): CoreBuilder {
         $this->save();
 

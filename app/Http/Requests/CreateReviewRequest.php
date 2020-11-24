@@ -21,13 +21,14 @@ class CreateReviewRequest extends FormRequest {
      */
     public function rules() {
         return [
-//            'uuid' => 'required|string|exists:App\Models\School,uuid',
+//            'uuid' => 'uuid|exists:App\Models\School,uuid',
             'text' => 'nullable|string|between:0,500',
-            'file' => 'sometimes|nullable|file|mimes:jpeg,bmp,png,jpg',
+            'file' => 'required_if:score,-1|file|mimes:jpeg,bmp,png,jpg',
             'fingerprint' => 'required|string|between:1,255',
             'score' => 'required|int|between:-1,1',
         ];
     }
+
+
 }
 
-//unique:App\Models\School,title
