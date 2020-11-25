@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        api: 'http://api.xn--80aaflnbqinod1bycxb.xn--p1ai/',
+        api: 'http://xn--80aaflnbqinod1bycxb.xn--p1ai/',
         school: null,
 
         buttonAction: {
