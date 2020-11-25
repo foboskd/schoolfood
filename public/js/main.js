@@ -23805,7 +23805,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
-    api: 'http://api.xn--80aaflnbqinod1bycxb.xn--p1ai/',
+    api: 'http://xn--80aaflnbqinod1bycxb.xn--p1ai/',
     school: null,
     buttonAction: {
       isDisabled: false,
