@@ -19,7 +19,11 @@ export default new Vuex.Store({
         progress: {
             total: 3,
             current: 0
-        }
+        },
+
+        score: null,
+        file: null
+
     },
     mutations: {
         setSchool: function (state, payload) {
@@ -30,6 +34,12 @@ export default new Vuex.Store({
         },
         setProgress: function (state, payload) {
             state.progress.current = payload;
+        },
+        setScore: function (state, payload) {
+            state.score = payload;
+        },
+        setFile: function (state, payload) {
+            state.file = payload;
         },
     },
     actions: {
@@ -48,6 +58,8 @@ export default new Vuex.Store({
         getSchool: (state) => state.school,
         getButtonAction: (state) => state.buttonAction,
         getProgress: (state) => state.progress,
+        getScore: (state) => state.score,
+        getFile: (state) => state.file,
     },
 
 });

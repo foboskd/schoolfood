@@ -3,7 +3,7 @@
         <div class="wrapper_point">
             <div class="point" v-for="point in getProgress.total"
                  :key="point"
-                 :class="{pointColor: point === getProgress.current}"></div>
+                 :class="{pointColor: point <= getProgress.current}"></div>
         </div>
     </article>
 </template>

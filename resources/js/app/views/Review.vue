@@ -8,7 +8,7 @@
         <up-line-text/>
 
         <div class="cart_area">
-            <back-cart-short/>
+            <back-cart-short v-if="getProgress.current < 3"/>
 
             <transition name="card-slide">
                 <router-view></router-view>
@@ -62,7 +62,7 @@
     }
 
     .card-slide-enter-active, .card-slide-leave-active {
-        transition: 1s;
+        transition: .75s;
     }
 
     .card-slide-enter {

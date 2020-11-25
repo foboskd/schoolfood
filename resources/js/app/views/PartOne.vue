@@ -1,11 +1,7 @@
 <template>
-    <!--<cart-area>-->
-    <!--<back-cart-short/>-->
-
     <short-cart :titleTexts="titleTexts" v-if="animFadeCart">
         <estimation-good-bad/>
     </short-cart>
-    <!--</cart-area>-->
 </template>
 
 <script>
@@ -28,33 +24,10 @@
                     {id: 1, text: 'Оцените качество'},
                     {id: 2, text: 'обеда в столовой'}
                 ],
-                buttonsGoodWay: [
-                    {id: 1, buttonTitle: "Дальше!", link: '/end', attributeStyleDisable: false}
-                ],
-                buttonBadWay: [
-                    {id: 1, buttonTitle: "Дальше!", link: '/part2', attributeStyleDisable: false}
-                ],
-                buttons: [
-                    {id: 1, buttonTitle: "Проголосуй!", link: '', attributeStyleDisable: true}
-                ],
-                points: [
-                    {id: 1, color: true},
-                    {id: 2, color: false},
-                    {id: 3, color: false}
-                ],
-                arrows: [
-                    {id: 1, link: '/'}
-                ],
                 eventActionFlag: null,
                 animFadeCart: true
             }
         },
-        // watch(){
-        //     eventBus.$on('animEvent', data => {
-        //         this.animFadeCart = data.animFadeCart
-        //         console.log(this.animFadeCart)
-        //     });
-        // },
         mounted() {
             this.$store.commit('setProgress', 1);
             this.$store.commit('setButtonAction', {

@@ -1,33 +1,11 @@
 <template>
-    <div>
-
-        <up-line-text></up-line-text>
-        <CartArea>
-            <BackCartShort></BackCartShort>
-            <ShortCart
-                    v-bind:titleTexts="titleTexts"
-            >
-                <img src="/media/img/backgroundimages/thanks.svg">
-
-            </ShortCart>
-            <ProgressPoint
-                    v-bind:points="points"
-            ></ProgressPoint>
-            <ButtonAction
-                    v-for="button of buttons"
-                    :key="button.id"
-                    v-bind:button="button"
-                    v-on:click="sendInfo"
-            >
-            </ButtonAction>
-        </CartArea>
-
-    </div>
-
+    <short-cart :titleTexts="titleTexts">
+        <img src="/media/img/backgroundimages/thanks.svg">
+    </short-cart>
 </template>
 
 <script>
-    //import {eventBus} from '../main';
+
     import axios from 'axios';
     import UpLineText from "../components/UpLineText";
     import CartArea from "../components/CartArea";
@@ -38,28 +16,29 @@
 
     export default {
         name: "PartEnd",
-        data(){
-            return{
-                buttons:[
-                    {id: 4, buttonTitle:"Выйти!", link:'/'}
+        data() {
+            return {
+                titleTexts: [
+                    {
+                        id: 1,
+                        text: 'Спасибо'
+                    },
+                    {
+                        id: 2,
+                        text: 'за вашу оценку'
+                    }
                 ],
-                points:[
-                    {id: 1, color:true},
-                    {id: 2, color:true},
-                    {id: 3, color:true}
-                ],
-                titleTexts:[
-                    {id:1, text:'Спасибо'},
-                    {id:2, text:'за вашу оценку'}
-                ],
-                rating:null,
-                testDescription:null,
-                fotoAdress:null,
+                rating: null,
+                testDescription: null,
+                fotoAdress: null,
                 asscc: null
             }
         },
-        created (){
-            console.log('testeventBus');
+        created() {
+
+            this.$store.commit('setProgress', 3);
+
+            /*console.log('testeventBus');
             this.rating = localStorage.getItem('countEstimation');
             this.testDescription = localStorage.getItem('textZoneDescription');
             this.fotoAdress = localStorage.getItem('fotAdds');
@@ -74,39 +53,23 @@
             localStorage.removeItem('textZoneDescription');
             localStorage.removeItem('fotAdds');
 
-            // axios.post('http://188.127.230.228/backend/querySum.php', {
-            //     rating: this.rating,
-            //     testDescription: this.testDescription,
-            //     fotoAdress: this.fotoAdress,
-            //     asscc: "test"
-            // }
             axios.post('http://188.127.230.228/backend/querySum.php', fData, {
-                headers:{
+                headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
                 .then(res => {
                     console.log(res)
-                })
-        }/*,
-        methods:{
-            sendInfo() {
-                console.log('click')
-                axios.get('http://192.168.0.151/test.php', {
-                    rating: this.rating,
-                    testDescription: this.testDescription,
-                    fotoAdress: this.fotoAdress
-                }, {
-                    headers:{
-                        'Content-Type': 'multipart/form-data'
-                    }
-                })
-                    .then(res => {
-                        console.log(res)
-                    })
-            }
-        }*/,
-        components: {ShortCart, BackCartShort, CartArea, UpLineText, ProgressPoint, ButtonAction}
+                });*/
+        },
+        components: {
+            ShortCart,
+            BackCartShort,
+            CartArea,
+            UpLineText,
+            ProgressPoint,
+            ButtonAction
+        }
     }
 </script>
 

@@ -27,6 +27,7 @@
 </template>
 
 <script>
+
     import {eventBus} from "../main";
 
     export default {
@@ -48,21 +49,41 @@
                     this.pathImageBad = "badestimationgrey.svg";
                     this.addFirstString = "Мне понравилось!";
                     this.addSecondString = "Сегодня было вкусно!";
-                    localStorage.setItem('countEstimation', event.target.value)
+                    // localStorage.setItem('countEstimation', event.target.value)
                     eventBus.$emit('eventActionFlag', {eventActionFlag: event.target.value}) // установил сохранение события в эвент бас для изменения пользовательского пути в зависимости от выбора
-                }
-                else {
+
+                    this.$store.commit('setScore', 1);
+
+                    this.$store.commit('setButtonAction', {
+                        isDisabled: false,
+                        title: 'Дальше!',
+                        routeName: 'End',
+                        progress: 3
+                    });
+
+                } else {
                     this.pathImageGood = "goodestimationgrey.svg";
                     this.pathImageBad = "badestimationcolor.svg";
                     this.addFirstString = "Мне не понравилось!";
                     this.addSecondString = "Сегодня было плохо!";
-                    localStorage.setItem('countEstimation', event.target.value)
+                    // localStorage.setItem('countEstimation', event.target.value)
                     eventBus.$emit('eventActionFlag', {eventActionFlag: event.target.value}) // установил сохранение события в эвент бас для изменения пользовательского пути в зависимости от выбора
+
+                    this.$store.commit('setScore', -1);
+
+                    this.$store.commit('setButtonAction', {
+                        isDisabled: false,
+                        title: 'Дальше!',
+                        routeName: 'PartTwo',
+                        progress: 2
+                    });
+
                 }
 
             }
         }
     }
+
 </script>
 
 <style scoped>
