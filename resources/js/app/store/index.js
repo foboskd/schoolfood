@@ -22,7 +22,8 @@ export default new Vuex.Store({
         },
 
         score: null,
-        file: null
+        file: null,
+        text: null
 
     },
     mutations: {
@@ -40,6 +41,9 @@ export default new Vuex.Store({
         },
         setFile: function (state, payload) {
             state.file = payload;
+        },
+        setText: function (state, payload) {
+            state.text = payload;
         },
     },
     actions: {
@@ -60,6 +64,7 @@ export default new Vuex.Store({
         getProgress: (state) => state.progress,
         getScore: (state) => state.score,
         getFile: (state) => state.file,
+        getText: (state) => state.text,
     },
 
 });

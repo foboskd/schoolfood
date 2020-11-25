@@ -2077,8 +2077,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2093,7 +2091,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ButtonPhoto",
   data: function data() {
@@ -2321,9 +2318,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//import {eventBus} from "../main";
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TextZone",
   data: function data() {
@@ -2333,9 +2327,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getTextOnTextZone: function getTextOnTextZone() {
-      /*eventBus.$emit('TextZone', {textBus: this.textZoneDescription});*/
-      localStorage.setItem('textZoneDescription', this.textZoneDescription);
+    setText: function setText() {
+      this.$store.commit('setText', textZoneDescription);
     }
   }
 });
@@ -2693,11 +2686,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "PartThree",
   data: function data() {
     return {
-      buttons: [{
-        id: 3,
-        buttonTitle: "Отправить отзыв!",
-        link: '/end'
-      }],
       titleTexts: [{
         id: 1,
         text: 'Что\n' + 'не так?'
@@ -2706,6 +2694,15 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Опиши подробнее'
       }]
     };
+  },
+  created: function created() {
+    this.$store.commit('setProgress', 2);
+    this.$store.commit('setButtonAction', {
+      isDisabled: false,
+      title: 'Отправить отзыв!',
+      routeName: 'End',
+      progress: 3
+    });
   },
   components: {
     ButtonAction: _components_ButtonAction__WEBPACK_IMPORTED_MODULE_5__["default"],
@@ -2936,7 +2933,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*Кнопки сделать фото внутри шорткарточки*/\n.button_zone[data-v-ef3e2a9a] {\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    height: 100%;\n    justify-content: flex-end;\n    align-items: center;\n}\n.fotoadd[data-v-ef3e2a9a] {\n    width: 15rem;\n    height: 3rem;\n    border: none;\n    border-radius: .57rem;\n    background-color: #F0F0F0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    font-size: .9rem;\n    margin-top: 1rem;\n}\n.pretext[data-v-ef3e2a9a] {\n    margin: 0;\n    font-size: .8rem;\n}\n.fotofile[data-v-ef3e2a9a] {\n    visibility: hidden;\n}\n.placeholderFoto[data-v-ef3e2a9a] {\n    width: 10rem;\n    min-height: 10rem;\n    object-fit: contain;\n    object-position: center;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*Кнопки сделать фото внутри шорткарточки*/\n.button_zone[data-v-ef3e2a9a] {\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    height: 100%;\n    justify-content: flex-end;\n    align-items: center;\n}\n.fotoadd[data-v-ef3e2a9a] {\n    width: 15rem;\n    height: 3rem;\n    border: none;\n    border-radius: .57rem;\n    background-color: #F0F0F0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    font-size: .9rem;\n    margin-top: 1rem;\n}\n.pretext[data-v-ef3e2a9a] {\n    margin: 0;\n    font-size: .8rem;\n}\n.fotofile[data-v-ef3e2a9a] {\n    visibility: hidden;\n}\n.placeholderFoto[data-v-ef3e2a9a] {\n    width: 10rem;\n    min-height: 10rem;\n    object-fit: contain;\n    object-position: center;\n}\n", ""]);
 
 // exports
 
@@ -3031,7 +3028,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*текстовая зона на шорткарточке*/\n.pretexttextzone[data-v-36769476]{\n    margin-bottom: 1.5rem;\n    font-size:.8rem;\n    text-align:center;\n}\n.textarea[data-v-36769476]{\n    box-sizing:border-box;\n    border:none;\n    border-radius:.57rem;\n    background-color:#F0F0F0;\n    width:15rem;\n    height:10rem;\n    padding:.5rem;\n    resize: none;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*текстовая зона на шорткарточке*/\n.pretexttextzone[data-v-36769476] {\n    margin-bottom: 1.5rem;\n    font-size: .8rem;\n    text-align: center;\n}\n.textarea[data-v-36769476] {\n    box-sizing: border-box;\n    border: none;\n    border-radius: .57rem;\n    background-color: #F0F0F0;\n    width: 15rem;\n    height: 10rem;\n    padding: .5rem;\n    resize: none;\n}\n", ""]);
 
 // exports
 
@@ -5847,7 +5844,9 @@ var render = function() {
       staticClass: "textarea",
       domProps: { value: _vm.textZoneDescription },
       on: {
-        change: _vm.getTextOnTextZone,
+        change: function($event) {
+          return _vm.setText()
+        },
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -23785,7 +23784,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
       current: 0
     },
     score: null,
-    file: null
+    file: null,
+    text: null
   },
   mutations: {
     setSchool: function setSchool(state, payload) {
@@ -23802,6 +23802,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     setFile: function setFile(state, payload) {
       state.file = payload;
+    },
+    setText: function setText(state, payload) {
+      state.text = payload;
     }
   },
   actions: {
@@ -23849,6 +23852,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     getFile: function getFile(state) {
       return state.file;
+    },
+    getText: function getText(state) {
+      return state.text;
     }
   }
 }));
