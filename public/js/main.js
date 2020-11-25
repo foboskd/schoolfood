@@ -2668,12 +2668,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ButtonAction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/ButtonAction */ "./resources/js/app/components/ButtonAction.vue");
 /* harmony import */ var _components_UpLineText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/UpLineText */ "./resources/js/app/components/UpLineText.vue");
 /* harmony import */ var _components_BackButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/BackButton */ "./resources/js/app/components/BackButton.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../store/index */ "./resources/js/app/store/index.js");
 //
 //
 //
 //
 //
 //
+
 
 
 
@@ -2694,6 +2696,15 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Опиши подробнее'
       }]
     };
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (_store_index__WEBPACK_IMPORTED_MODULE_8__["default"].getters.getScore === -1) {
+      return next();
+    } else {
+      return next({
+        name: 'PartOne'
+      });
+    }
   },
   created: function created() {
     this.$store.commit('setProgress', 2);
@@ -2735,12 +2746,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ButtonAction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/ButtonAction */ "./resources/js/app/components/ButtonAction.vue");
 /* harmony import */ var _components_UpLineText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/UpLineText */ "./resources/js/app/components/UpLineText.vue");
 /* harmony import */ var _components_BackButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/BackButton */ "./resources/js/app/components/BackButton.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../store/index */ "./resources/js/app/store/index.js");
 //
 //
 //
 //
 //
 //
+
 
 
 
@@ -2761,6 +2774,15 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Cфотай еду'
       }]
     };
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (_store_index__WEBPACK_IMPORTED_MODULE_8__["default"].getters.getScore === -1) {
+      return next();
+    } else {
+      return next({
+        name: 'PartOne'
+      });
+    }
   },
   created: function created() {
     this.$store.commit('setProgress', 2);

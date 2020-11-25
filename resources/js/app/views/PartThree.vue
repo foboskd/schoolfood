@@ -14,6 +14,7 @@
     import ButtonAction from "../components/ButtonAction";
     import UpLineText from "../components/UpLineText";
     import UpArrow from "../components/BackButton";
+    import store from "../store/index";
 
     export default {
         name: "PartThree",
@@ -23,6 +24,15 @@
                     {id: 1, text: 'Что\n' + 'не так?'},
                     {id: 2, text: 'Опиши подробнее'}
                 ]
+            }
+        },
+        beforeRouteEnter(to, from, next) {
+            if (store.getters.getScore === -1) {
+                return next();
+            } else {
+                return next({
+                    name: 'PartOne'
+                });
             }
         },
         created() {

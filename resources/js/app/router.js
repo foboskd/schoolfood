@@ -7,7 +7,6 @@ import PartTwo from "./views/PartTwo";
 import PartThree from "./views/PartThree";
 import PartEnd from "./views/PartEnd";
 import NotFound404 from "./views/NotFound404";
-
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -30,12 +29,12 @@ export default new VueRouter({
                 {
                     path: 'part_two',
                     component: PartTwo,
-                    name: 'PartTwo'
+                    name: 'PartTwo',
                 },
                 {
                     path: 'part_three',
                     component: PartThree,
-                    name: 'PartThree'
+                    name: 'PartThree',
                 },
                 {
                     path: 'end',
