@@ -23899,6 +23899,16 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("".concat(this.state.api, "schools/").concat(uuid, "/review"), formData, settings).then(function (res) {
                   console.log(res);
+                  commit('setScore', null);
+                  commit('setText', null);
+                  commit('setFile', null);
+                })["catch"](function (error) {
+                  setTimeout(function () {
+                    alert('Вы уже голосовали сегодня');
+                  }, 700);
+                  commit('setScore', null);
+                  commit('setText', null);
+                  commit('setFile', null);
                 });
 
               case 6:

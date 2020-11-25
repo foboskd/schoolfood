@@ -82,7 +82,18 @@ export default new Vuex.Store({
 
             axios.post(`${this.state.api}schools/${uuid}/review`, formData, settings)
                 .then(res => {
-                    console.log(res)
+                    console.log(res);
+                    commit('setScore', null);
+                    commit('setText', null);
+                    commit('setFile', null);
+                })
+                .catch(error => {
+                    setTimeout(()=> {
+                        alert('Вы уже голосовали сегодня');
+                    }, 700);
+                    commit('setScore', null);
+                    commit('setText', null);
+                    commit('setFile', null);
                 });
         },
     },
