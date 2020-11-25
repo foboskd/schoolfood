@@ -13,6 +13,8 @@
     import ShortCart from "../components/ShortCart";
     import ProgressPoint from "../components/ProgressPoint";
     import ButtonAction from "../components/ButtonAction";
+    import store from "../store/index";
+
 
     export default {
         name: "PartEnd",
@@ -28,15 +30,28 @@
                         text: 'за вашу оценку'
                     }
                 ],
-                rating: null,
-                testDescription: null,
-                fotoAdress: null,
-                asscc: null
+            }
+        },
+        beforeRouteEnter(to, from, next) {
+            if (store.getters.getScore === -1 || store.getters.getScore === 1) {
+                return next();
+            } else {
+                return next({
+                    name: 'PartOne'
+                });
             }
         },
         created() {
 
             this.$store.commit('setProgress', 3);
+            this.$store.commit('setButtonAction', {
+                isDisabled: false,
+                title: 'Выйти',
+                routeName: 'ReviewIndex',
+                progress: 1
+            });
+
+            this.$store.dispatch('sendReview', this.$route.params.school_uuid);
 
             /*console.log('testeventBus');
             this.rating = localStorage.getItem('countEstimation');

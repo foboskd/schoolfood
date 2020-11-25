@@ -16,7 +16,7 @@
         },
         methods: {
             setText() {
-                this.$store.commit('setText', textZoneDescription);
+                this.$store.commit('setText', this.textZoneDescription);
             }
         }
     }

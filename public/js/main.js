@@ -2104,6 +2104,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var reader = new FileReader();
+      this.$store.commit('setFile', this.$refs.fotofile.files[0]);
 
       reader.onload = function () {
         _this.$store.commit('setFile', reader.result);
@@ -2328,7 +2329,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setText: function setText() {
-      this.$store.commit('setText', textZoneDescription);
+      this.$store.commit('setText', this.textZoneDescription);
     }
   }
 });
@@ -2382,10 +2383,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ProgressPoint__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProgressPoint */ "./resources/js/app/components/ProgressPoint.vue");
 /* harmony import */ var _components_ButtonAction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ButtonAction */ "./resources/js/app/components/ButtonAction.vue");
 /* harmony import */ var _components_UpLineText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/UpLineText */ "./resources/js/app/components/UpLineText.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -2507,12 +2504,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ShortCart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ShortCart */ "./resources/js/app/components/ShortCart.vue");
 /* harmony import */ var _components_ProgressPoint__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/ProgressPoint */ "./resources/js/app/components/ProgressPoint.vue");
 /* harmony import */ var _components_ButtonAction__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/ButtonAction */ "./resources/js/app/components/ButtonAction.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/index */ "./resources/js/app/store/index.js");
 //
 //
 //
 //
 //
 //
+
 
 
 
@@ -2530,15 +2529,27 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         id: 2,
         text: 'за вашу оценку'
-      }],
-      rating: null,
-      testDescription: null,
-      fotoAdress: null,
-      asscc: null
+      }]
     };
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (_store_index__WEBPACK_IMPORTED_MODULE_7__["default"].getters.getScore === -1 || _store_index__WEBPACK_IMPORTED_MODULE_7__["default"].getters.getScore === 1) {
+      return next();
+    } else {
+      return next({
+        name: 'PartOne'
+      });
+    }
   },
   created: function created() {
     this.$store.commit('setProgress', 3);
+    this.$store.commit('setButtonAction', {
+      isDisabled: false,
+      title: 'Выйти',
+      routeName: 'ReviewIndex',
+      progress: 1
+    });
+    this.$store.dispatch('sendReview', this.$route.params.school_uuid);
     /*console.log('testeventBus');
     this.rating = localStorage.getItem('countEstimation');
     this.testDescription = localStorage.getItem('textZoneDescription');
@@ -2955,7 +2966,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*Кнопки сделать фото внутри шорткарточки*/\n.button_zone[data-v-ef3e2a9a] {\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    height: 100%;\n    justify-content: flex-end;\n    align-items: center;\n}\n.fotoadd[data-v-ef3e2a9a] {\n    width: 15rem;\n    height: 3rem;\n    border: none;\n    border-radius: .57rem;\n    background-color: #F0F0F0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    font-size: .9rem;\n    margin-top: 1rem;\n}\n.pretext[data-v-ef3e2a9a] {\n    margin: 0;\n    font-size: .8rem;\n}\n.fotofile[data-v-ef3e2a9a] {\n    visibility: hidden;\n}\n.placeholderFoto[data-v-ef3e2a9a] {\n    width: 10rem;\n    min-height: 10rem;\n    object-fit: contain;\n    object-position: center;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*Кнопки сделать фото внутри шорткарточки*/\n.button_zone[data-v-ef3e2a9a] {\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    height: 100%;\n    justify-content: flex-end;\n    align-items: center;\n}\n.fotoadd[data-v-ef3e2a9a] {\n    width: 15rem;\n    height: 3rem;\n    border: none;\n    border-radius: .57rem;\n    background-color: #F0F0F0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    font-size: .9rem;\n    margin-top: 1rem;\n}\n.pretext[data-v-ef3e2a9a] {\n    margin: 0;\n    font-size: .8rem;\n}\n.fotofile[data-v-ef3e2a9a] {\n    visibility: hidden;\n}\n.placeholderFoto[data-v-ef3e2a9a] {\n    width: 10rem;\n    min-height: 10rem;\n    object-fit: contain;\n    object-position: center;\n}\n", ""]);
 
 // exports
 
@@ -5613,6 +5624,7 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("input", {
+      ref: "fotofile",
       staticClass: "fotofile",
       attrs: { type: "file", id: "fotofile", name: "fotofile", multiple: "" },
       on: { change: _vm.onFileSelected }
@@ -23857,6 +23869,51 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
       }
 
       return requestSchool;
+    }(),
+    sendReview: function () {
+      var _sendReview = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref2, payload) {
+        var commit, getters, uuid, formData, settings;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                commit = _ref2.commit, getters = _ref2.getters;
+                uuid = payload, formData = new FormData(), settings = {
+                  headers: {
+                    'content-type': 'multipart/form-data',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                  }
+                };
+                formData.append('score', this.state.score);
+                formData.append('fingerprint', generate_fingerprint());
+
+                if (this.state.score === -1) {
+                  if (this.state.file) {
+                    formData.append('file', this.state.file);
+                  }
+
+                  if (this.state.text) {
+                    formData.append('text', this.state.text);
+                  }
+                }
+
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("".concat(this.state.api, "schools/").concat(payload, "/review"), formData, settings).then(function (res) {
+                  console.log(res);
+                });
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function sendReview(_x3, _x4) {
+        return _sendReview.apply(this, arguments);
+      }
+
+      return sendReview;
     }()
   },
   getters: {

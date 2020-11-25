@@ -8,11 +8,12 @@
             <img src="/media/img/galery.svg">
             &nbsp;Сделать или добавить фото
         </label>
-        <input type="file" id="fotofile" name="fotofile" class="fotofile" @change="onFileSelected" multiple/>
+        <input type="file" ref="fotofile" id="fotofile" name="fotofile" class="fotofile" @change="onFileSelected" multiple/>
     </div>
 </template>
 
 <script>
+
 
     export default {
         name: "ButtonPhoto",
@@ -25,6 +26,8 @@
         methods: {
             onFileSelected(event) {
                 let reader = new FileReader();
+
+                this.$store.commit('setFile', this.$refs.fotofile.files[0]);
 
                 reader.onload = () => {
                     this.$store.commit('setFile', reader.result);

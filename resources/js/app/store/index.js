@@ -57,6 +57,34 @@ export default new Vuex.Store({
                     commit('setSchool', undefined);
                 });
         },
+        sendReview: async function ({commit, getters}, payload) {
+
+            const uuid = payload,
+                formData = new FormData(),
+                settings = {
+                    headers: {
+                        'content-type': 'multipart/form-data',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    }
+                };
+
+            formData.append('score', this.state.score);
+            formData.append('fingerprint', generate_fingerprint());
+
+            if (this.state.score === -1) {
+                if (this.state.file) {
+                    formData.append('file', this.state.file);
+                }
+                if (this.state.text) {
+                    formData.append('text', this.state.text);
+                }
+            }
+
+            axios.post(`${this.state.api}schools/${payload}/review`, formData, settings)
+                .then(res => {
+                    console.log(res)
+                });
+        },
     },
     getters: {
         getSchool: (state) => state.school,

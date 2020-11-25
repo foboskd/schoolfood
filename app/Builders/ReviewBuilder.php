@@ -25,13 +25,15 @@ class ReviewBuilder extends CoreBuilder {
     }
 
     public function setFile($file): CoreBuilder {
-        $this->save();
+        if ($file) {
+            $this->save();
 
-        $filename = $this->model->uuid . '.' . $file->extension();
+            $filename = $this->model->uuid . '.' . $file->extension();
 
-        Storage::put('public/files/' . $filename, file_get_contents($file));
+            Storage::put('public/files/' . $filename, file_get_contents($file));
 
-        $this->model->file = $filename;
+            $this->model->file = $filename;
+        }
 
         return $this;
     }

@@ -1,14 +1,10 @@
 <template>
-    <!--<cart-area>-->
-    <!--<back-cart-short/>-->
-
     <short-cart>
         <h1>Помоги нам сделать<br> твои обеды лучше</h1>
         <div class="bakcgroundsoup">
             <img src="/media/img/soupindex.svg" class="circul_backgroundgirl">
         </div>
     </short-cart>
-    <!--</cart-area>-->
 </template>
 
 <script>
