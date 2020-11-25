@@ -63,7 +63,7 @@ export default new Vuex.Store({
                 formData = new FormData(),
                 settings = {
                     headers: {
-                        'content-type': 'multipart/form-data',
+                        'Content-Type': 'multipart/form-data',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
                     }
                 };
@@ -80,7 +80,7 @@ export default new Vuex.Store({
                 }
             }
 
-            axios.post(`${this.state.api}schools/${payload}/review`, formData, settings)
+            axios.post(`${this.state.api}schools/${uuid}/review`, formData, settings)
                 .then(res => {
                     console.log(res)
                 });

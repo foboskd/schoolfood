@@ -24,15 +24,31 @@ class ReviewBuilder extends CoreBuilder {
         }
     }
 
-    public function setFile($file): CoreBuilder {
-        if ($file) {
+    public function setFile($request): CoreBuilder {
+        if ($request->file) {
+
             $this->save();
 
-            $filename = $this->model->uuid . '.' . $file->extension();
+            /*$filename = $this->model->uuid . '.' . $file->extension();
+            $filename = $this->model->uuid . '.jpg';
 
-            Storage::put('public/files/' . $filename, file_get_contents($file));
+            Storage::put('public/files/' . $filename, base64_decode($request->file));*/
 
-            $this->model->file = $filename;
+            $image_64 = $request->file; //your base64 encoded data
+
+            $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+
+            $replace = substr($image_64, 0, strpos($image_64, ',') + 1);
+
+            $image = str_replace($replace, '', $image_64);
+
+            $image = str_replace(' ', '+', $image);
+
+            $imageName = $this->model->uuid . '.' . $extension;
+
+            Storage::put('public/files/' . $imageName, base64_decode($image));
+
+            $this->model->file = $imageName;
         }
 
         return $this;

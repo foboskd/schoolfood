@@ -23880,7 +23880,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                 commit = _ref2.commit, getters = _ref2.getters;
                 uuid = payload, formData = new FormData(), settings = {
                   headers: {
-                    'content-type': 'multipart/form-data',
+                    'Content-Type': 'multipart/form-data',
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                   }
                 };
@@ -23897,7 +23897,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                   }
                 }
 
-                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("".concat(this.state.api, "schools/").concat(payload, "/review"), formData, settings).then(function (res) {
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("".concat(this.state.api, "schools/").concat(uuid, "/review"), formData, settings).then(function (res) {
                   console.log(res);
                 });
 

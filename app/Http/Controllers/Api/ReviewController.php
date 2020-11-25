@@ -25,7 +25,7 @@ class ReviewController extends Controller {
         if ($request->score < 0) {
             $this->builder
                 ->setText($request->text)
-                ->setFile($request->file);
+                ->setFile($request);
         }
 
         $this->builder->save();

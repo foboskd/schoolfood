@@ -23,7 +23,7 @@ class CreateReviewRequest extends FormRequest {
         return [
 //            'uuid' => 'uuid|exists:App\Models\School,uuid',
             'text' => 'nullable|string|between:0,500',
-//            'file' => 'nullable|sometimes|file|mimes:jpeg,bmp,png,jpg',
+//            'file' => 'nullable|image64:jpeg,jpg,png,',
             'fingerprint' => 'required|string|between:1,255',
             'score' => 'required|int|between:-1,1',
         ];
