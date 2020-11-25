@@ -11,6 +11,12 @@
 <body>
 
 <div class="container">
+    <form action="/logout" method="POST">
+        @csrf
+
+        <input type="submit" value="Выйти">
+    </form>
+
     @yield('content')
 </div>
 

@@ -39,7 +39,7 @@ class SchoolController extends Controller {
             ->setAddress($request->address)
             ->save();
 
-        return 200;
+        return view('admin.school.index');
     }
 
     public function reviews(string $uuid) {

@@ -10,6 +10,9 @@
 
     <a href="/admin/schools/">
         Назад
+    </a><br/>
+    <a href="/review/{{ $school->uuid }}">
+        Ссылка на школу
     </a>
 
 

@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
+    <h1>Создание школы</h1>
+
+    <a href="/admin/schools/">
+        Назад
+    </a>
+
+    <br/><br/>
+
     <form action="/admin/schools" method="POST">
         @csrf
 
