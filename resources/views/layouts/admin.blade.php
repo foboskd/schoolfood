@@ -11,10 +11,10 @@
 <body>
 
 <div class="container">
-    <form action="/logout" method="POST">
+    <form class="profile-wrapper" action="/logout" method="POST">
         @csrf
 
-        <input type="submit" value="Выйти">
+        <label>Администратор</label><input type="submit" value="Выйти">
     </form>
 
     @yield('content')

@@ -24,8 +24,42 @@ body {
     padding-top: 3rem;
 }
 
+/*стили для внутренней страницы*/
+
+.profile-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.profile-wrapper input[type="submit"]{
+    background: none;
+    border: .1rem solid black;
+    border-radius: .3rem;
+    margin-left: 1rem;
+}
+
+.header-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-wrapper a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    background-color: darkorange;
+    padding: .25rem;
+    border-radius: .25rem;
+}
+
 .container {
-    width: 60rem;
+    max-width: 60rem;
+    width: 100%;
     margin: auto;
 }
 
@@ -47,7 +81,16 @@ body {
 .data-table > .row > .col {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /*width: 100%;*/
+}
+
+.data-table > .row > .col:first-child {
+    max-width:40rem;
+    width:100%;
+}
+
+.data-table > .row > .col:last-child {
+    padding-left:4rem;
 }
 
 .data-table > .row > .col > img {
@@ -55,3 +98,42 @@ body {
     object-fit: contain;
     object-position: center;
 }
+
+/*стили для внутренней страницы, конец*/
+
+
+
+/*стили для страницы авторизации*/
+
+.login-form-wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form{
+    max-width: 20rem;
+    width:100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: .3rem;
+    border: .01rem solid black;
+}
+
+.login-form h2{
+    margin-top:0;
+}
+
+.login-form input{
+    width: 18rem;
+    margin-bottom: 1rem;
+}
+
+.login-form input[type="submit"]{
+    width:10rem;
+}
+
+/*стили для страницы авторизации*/

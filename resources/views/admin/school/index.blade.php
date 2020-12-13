@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Список школ</h1>
 
-    <a href="/admin/schools/create">
-        Создать школу
-    </a>
-
+    <div class="header-wrapper">
+        <h1>Список школ</h1>
+        <a href="/admin/schools/create">
+            Создать школу
+        </a>
+    </div>
 
     <div class="data-table">
         <div class="row">
@@ -20,7 +21,7 @@
                 <strong>Сумма</strong>
             </div>
             <div class="col">
-
+                <strong>Действие</strong>
             </div>
         </div>
         @foreach($schools as $school)
