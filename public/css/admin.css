@@ -173,11 +173,18 @@ header {
     align-items: flex-start;
 }
 
+header > div:first-child {
+    width: 70%;
+}
+
 .links-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 13rem;
+}
+
+.links-wrapper > a {
+    margin-left: 1rem;
 }
 
 .create-form {

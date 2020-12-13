@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Мониторинг питания</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin.css')}}">
+    <link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}"/>
 </head>
 <body>
 
