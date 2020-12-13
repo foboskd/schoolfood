@@ -46,6 +46,10 @@
                         <img src="{{ asset('/media/img/expand.svg')  }}" alt="">
                         Отзывы
                     </a>
+                    <a target="_blank" href="/api/qr-code/{{ $school->uuid }}" class="button small-button">
+                        <img src="{{ asset('/media/img/qr-code.svg')  }}" alt="">
+                        Сгенерировать qr-code
+                    </a>
                 </div>
             </div>
         @endforeach

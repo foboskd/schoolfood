@@ -74,6 +74,10 @@ body {
     margin-right: .5rem;
 }
 
+.small-button {
+    font-size: .75rem;
+}
+
 .container {
     max-width: 60rem;
     width: 100%;
@@ -123,6 +127,10 @@ body {
 
 .data-table > .row > .col:last-child {
     padding-left:4rem;
+}
+
+.data-table > .row > .col:last-child > a {
+    margin-bottom: .5rem;
 }
 
 .data-table > .row > .col:nth-last-child(3) {
