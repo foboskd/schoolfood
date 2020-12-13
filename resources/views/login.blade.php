@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Авторизация</title>
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    {{--    <link rel="stylesheet" href="{{ asset('css/main.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
+<body class="login-body">
 <div class="login-form-wrapper">
     <form class="login-form" action="/login" method="POST">
         @csrf
@@ -18,4 +20,5 @@
         <input type="submit" value="Войти">
     </form>
 </div>
+</body>
 </html>

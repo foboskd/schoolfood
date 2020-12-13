@@ -18,6 +18,9 @@
                 <strong>Адрес</strong>
             </div>
             <div class="col">
+                <strong>Количество голосов</strong>
+            </div>
+            <div class="col">
                 <strong>Сумма</strong>
             </div>
             <div class="col">
@@ -33,10 +36,14 @@
                     {{ $school->address }}
                 </div>
                 <div class="col">
+                    {{ count($school->reviews) }}
+                </div>
+                <div class="col">
                     {{ $school->reviewsSum() }}
                 </div>
                 <div class="col">
-                    <a href="/admin/schools/{{ $school->uuid }}/reviews">
+                    <a target="_blank" href="/admin/schools/{{ $school->uuid }}/reviews" class="button">
+                        <img src="{{ asset('/media/img/expand.svg')  }}" alt="">
                         Отзывы
                     </a>
                 </div>

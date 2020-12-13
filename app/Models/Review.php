@@ -11,6 +11,14 @@ class Review extends CoreModel {
 
     private static $admin_fields = ['uuid', 'school_uuid', 'text', 'file', 'fingerprint', 'score', 'created_at', 'updated_at'];
 
+    public function getCreatedAtAttribute($value) {
+        $new_date = strtotime($value);
+
+        return [
+            'date' => date('d.m.Y', $new_date),
+            'time' => date('H:i:s', $new_date),
+        ];
+    }
 
     public static function getPublicFields() {
         return self::$public_fields;

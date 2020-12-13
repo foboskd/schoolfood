@@ -22,7 +22,7 @@ class School extends CoreModel {
     }
 
     public function reviews() {
-        return $this->hasMany('App\Models\Review', 'school_uuid', 'uuid');
+        return $this->hasMany('App\Models\Review', 'school_uuid', 'uuid')->orderBy('created_at', 'DESC');
     }
 
     public function reviewsSum() {

@@ -26,7 +26,7 @@ abstract class CoreRepository {
     }
 
     public function getAllForAdmin() {
-        $query_builder = $this->getModel()->forAdmin()->get();
+        $query_builder = $this->getModel()->forAdmin()->orderBy('created_at', 'DESC')->get();
 
         return $query_builder;
     }

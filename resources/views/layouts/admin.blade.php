@@ -14,7 +14,8 @@
     <form class="profile-wrapper" action="/logout" method="POST">
         @csrf
 
-        <label>Администратор</label><input type="submit" value="Выйти">
+        <label>Администратор</label>
+        <input type="submit" value="Выйти" id="logout-button">
     </form>
 
     @yield('content')
