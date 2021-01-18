@@ -36,19 +36,22 @@
                     {{ $user->district ? $user->district->title : ''}}
                 </div>
                 <div class="col">
-                    <a target="_blank" href="/admin/users/{{ $user->id }}/edit" class="button small-button">
-                        <img src="{{ asset('/media/img/pencil.svg')  }}" alt="">
-                        Редактировать
-                    </a>
-                    <form action="/admin/users/{{ $user->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
+                    <div class="action-buttons">
+                        <a target="_blank" href="/admin/users/{{ $user->id }}/edit" class="button">
+                            <img src="{{ asset('/media/img/pencil.svg')  }}" alt="">
+                            {{--Редактировать--}}
+                        </a>
 
-                        <button class="button small-button">
-                            <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
-                            Удалить
-                        </button>
-                    </form>
+                        <form action="/admin/users/{{ $user->id }}" method="POST" class="button">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="button small-button">
+                                <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
+                                {{--Удалить--}}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         @endforeach

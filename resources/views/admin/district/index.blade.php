@@ -24,19 +24,22 @@
                     {{ $district->title }}
                 </div>
                 <div class="col">
-                    <a target="_blank" href="/admin/districts/{{ $district->id }}/edit" class="button small-button">
-                        <img src="{{ asset('/media/img/pencil.svg')  }}" alt="">
-                        Редактировать
-                    </a>
-                    <form action="/admin/districts/{{ $district->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
+                    <div class="action-buttons">
+                        <a target="_blank" href="/admin/districts/{{ $district->id }}/edit" class="button small-button">
+                            <img src="{{ asset('/media/img/pencil.svg')  }}" alt="">
+                            {{--Редактировать--}}
+                        </a>
 
-                        <button class="button small-button">
-                            <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
-                            Удалить
-                        </button>
-                    </form>
+                        <form action="/admin/districts/{{ $district->id }}" method="POST" class="button">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="button">
+                                <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
+                                {{--Удалить--}}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         @endforeach

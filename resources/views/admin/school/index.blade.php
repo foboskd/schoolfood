@@ -50,19 +50,24 @@
                         <img src="{{ asset('/media/img/qr-code.svg')  }}" alt="">
                         Сгенерировать qr-code
                     </a>
-                    <a target="_blank" href="/admin/schools/{{ $school->uuid }}/edit" class="button small-button">
-                        <img src="{{ asset('/media/img/pencil.svg')  }}" alt="">
-                        Редактировать
-                    </a>
-                    <form action="/admin/schools/{{ $school->uuid }}" method="POST">
-                        @csrf
-                        @method('DELETE')
 
-                        <button class="button small-button">
-                            <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
-                            Удалить
-                        </button>
-                    </form>
+                    <div class="action-buttons">
+                        <a target="_blank" href="/admin/schools/{{ $school->uuid }}/edit" class="button">
+                            <img src="{{ asset('/media/img/pencil.svg')  }}" alt="">
+                            {{--Редактировать--}}
+                        </a>
+
+
+                        <form action="/admin/schools/{{ $school->uuid }}" method="POST" class="button">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="button">
+                                <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
+                                {{--Удалить--}}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         @endforeach

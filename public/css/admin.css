@@ -193,6 +193,15 @@ body {
     object-position: center;
 }
 
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-buttons > * {
+    width: 49%;
+}
+
 .negative-color {
     color: #fa603a;
 }
