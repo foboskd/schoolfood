@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 
 use App\Models\School;
+use Illuminate\Support\Facades\Auth;
 
 class SchoolRepository extends CoreRepository {
 
@@ -15,6 +16,17 @@ class SchoolRepository extends CoreRepository {
 
     protected function getModel() {
         return $this->model;
+    }
+
+    public function getAllForModerator() {
+        $query_builder = $this->getModel()
+            ->forAdmin()
+            ->whereNotNull('district_id')
+            ->whereDistrictId(Auth::user()->district_id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return $query_builder;
     }
 
 }

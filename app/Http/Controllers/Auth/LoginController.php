@@ -12,7 +12,11 @@ class LoginController extends Controller {
         $credentials = $request->only('name', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect('/admin/schools/');
+            if (Auth::user()->role->code === 'ADMIN') {
+                return redirect('/admin/schools/');
+            } else {
+                return redirect('/moderator/schools/');
+            }
         }
 
         return redirect('/login');

@@ -12,7 +12,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
 });
 
 
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'verify.admin']], function () {
 
     Route::resource('/schools', SchoolController::class)->except([
         'show'
@@ -27,6 +27,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
     ]);
 
     Route::get('/schools/{uuid}/reviews', 'SchoolController@reviews');
+
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Moderator', 'prefix' => 'moderator', 'middleware' => ['auth', 'verify.moderator']], function () {
+
+    Route::resource('/schools', SchoolController::class)->only([
+        'index', 'create', 'store'
+    ]);
 
 });
 
