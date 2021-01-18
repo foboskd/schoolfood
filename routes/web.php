@@ -14,11 +14,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::resource('/schools', SchoolController::class)->only([
-        'index', 'create', 'store'
+    Route::resource('/schools', SchoolController::class)->except([
+        'show'
     ]);
 
     Route::resource('/districts', DistrictController::class)->except([
+        'show'
+    ]);
+
+    Route::resource('/users', UserController::class)->except([
         'show'
     ]);
 

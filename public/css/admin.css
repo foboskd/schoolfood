@@ -231,7 +231,7 @@ header > div:first-child {
     width: 20rem;
 }
 
-.create-form > input {
+.create-form > input, .create-form > select {
     margin-bottom: 1rem;
     padding: .5rem;
 }
