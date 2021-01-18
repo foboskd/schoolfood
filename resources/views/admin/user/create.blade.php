@@ -12,8 +12,6 @@
 
     <br/><br/>
 
-    {{ $errors }}
-
     <form action="/admin/users" method="POST" class="create-form">
         @csrf
 

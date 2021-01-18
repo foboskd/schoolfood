@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Builders\SchoolBuilder;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateSchoolRequest;
+use App\Http\Requests\UpdateSchoolRequest;
+use App\Repositories\DistrictRepository;
 use App\Repositories\ReviewRepository;
 use App\Repositories\SchoolRepository;
 
@@ -14,13 +16,13 @@ class SchoolController extends Controller {
 
     protected $repository;
 
-    protected $reviews_repository;
+    protected $district_repository;
 
 
     public function __construct() {
         $this->builder = new SchoolBuilder();
         $this->repository = new SchoolRepository();
-        $this->reviews_repository = new ReviewRepository();
+        $this->district_repository = new DistrictRepository();
     }
 
 
@@ -32,7 +34,9 @@ class SchoolController extends Controller {
 
 
     public function create() {
-        return view('admin.school.create');
+        $districts = $this->district_repository->getAllForAdmin();
+
+        return view('admin.school.create', compact('districts'));
     }
 
 
@@ -41,7 +45,43 @@ class SchoolController extends Controller {
             ->createEmpty()
             ->setTitle($request->title)
             ->setAddress($request->address)
+            ->setDistrictId($request->district_id)
+            ->setLatitude($request->latitude)
+            ->setLongitude($request->longitude)
             ->save();
+
+        return redirect('/admin/schools');
+    }
+
+
+    public function edit(string $uuid) {
+        $school = $this->repository->getByUuidForAdmin($uuid);
+        $districts = $this->district_repository->getAllForAdmin();
+
+        return view('admin.school.edit', compact('school', 'districts'));
+    }
+
+
+    public function update(UpdateSchoolRequest $request, string $uuid) {
+        if ($school = $this->repository->getByUuidForAdmin($uuid)) {
+            $this->builder
+                ->loadModel($school)
+                ->setTitle($request->title)
+                ->setAddress($request->address)
+                ->setDistrictId($request->district_id)
+                ->setLatitude($request->latitude)
+                ->setLongitude($request->longitude)
+                ->save();
+        }
+
+        return redirect('/admin/schools');
+    }
+
+
+    public function destroy(string $uuid) {
+        $school = $this->repository->getByUuidForAdmin($uuid);
+
+        $school->delete();
 
         return redirect('/admin/schools');
     }

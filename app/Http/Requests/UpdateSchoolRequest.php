@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateSchoolRequest extends FormRequest {
+class UpdateSchoolRequest extends FormRequest {
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -21,7 +21,7 @@ class CreateSchoolRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'title' => 'required|string|between:3,255|unique:App\Models\School,title',
+            'title' => 'required|string|between:3,255',
             'address' => 'required|string|between:3,255',
             'district_id' => 'nullable|int|exists:App\Models\District,id',
             'latitude' => 'nullable|string|size:9',

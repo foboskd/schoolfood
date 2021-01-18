@@ -8,7 +8,7 @@ class School extends CoreModel {
 
     private static $public_fields = ['title', 'address'];
 
-    private static $admin_fields = ['uuid', 'created_at', 'updated_at'];
+    private static $admin_fields = ['uuid', 'created_at', 'updated_at', 'district_id', 'latitude', 'longitude'];
 
 
     public static function getPublicFields() {
