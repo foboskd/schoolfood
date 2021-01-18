@@ -15,8 +15,22 @@
     <form class="profile-wrapper" action="/logout" method="POST">
         @csrf
 
-        <label>Администратор</label>
-        <input type="submit" value="Выйти" id="logout-button">
+        {{ \Illuminate\Support\Facades\Auth::user()->role }}
+
+        <div class="block">
+            <a href="districts" class="link">
+                Районы
+            </a>
+
+            <a href="users" class="link">
+                Пользователи
+            </a>
+        </div>
+
+        <div class="block">
+            <label>Администратор</label>
+            <input type="submit" value="Выйти" id="logout-button">
+        </div>
     </form>
 
     @yield('content')

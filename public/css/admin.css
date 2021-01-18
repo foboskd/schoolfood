@@ -25,24 +25,59 @@ body {
     height: 100vh;
 }
 
+.link {
+    color: darkorange;
+    text-decoration: none;
+    position: relative;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 1px;
+    background-color: darkorange;
+    transition: .35s;
+}
+
+.link:hover::before {
+    width: 100%;
+    left: 0;
+}
+
 .login-body {
     padding-top: 0;
 }
 
 /*стили для внутренней страницы*/
 
-.profile-wrapper{
+.profile-wrapper {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding-bottom: 3rem;
+}
+
+.profile-wrapper > .block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-wrapper > .block > * {
+    margin-right: 1rem;
+}
+
+.profile-wrapper > .block > *:last-child {
+    margin-right: 0;
 }
 
 .profile-wrapper input[type="submit"]{
     background: none;
     border: .1rem solid black;
     border-radius: .3rem;
-    margin-left: 1rem;
 }
 
 .header-wrapper{
