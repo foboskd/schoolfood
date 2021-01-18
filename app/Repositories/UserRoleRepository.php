@@ -3,14 +3,14 @@
 namespace App\Repositories;
 
 
-use App\Models\District;
+use App\Models\UserRole;
 
-class DistrictRepository extends CoreRepository {
+class UserRoleRepository extends CoreRepository {
 
     private $model;
 
     public function __construct() {
-        $this->model = new District();
+        $this->model = new UserRole();
     }
 
     protected function getModel() {

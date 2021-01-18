@@ -24,6 +24,6 @@ class User extends Authenticatable {
 
 
     public function role() {
-        return $this->hasOne('App\Models\UserRole');
+        return $this->hasOne('App\Models\UserRole', 'id', 'role_id');
     }
 }

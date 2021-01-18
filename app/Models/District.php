@@ -9,6 +9,7 @@ class District extends CoreModel {
 
     private static $admin_fields = ['id', 'title'];
 
+    protected $primaryKey = 'id';
 
     public static function getPublicFields() {
         return self::$public_fields;
@@ -17,5 +18,6 @@ class District extends CoreModel {
     public static function getAdminFields() {
         return array_merge(self::$public_fields, self::$admin_fields);
     }
+
 
 }

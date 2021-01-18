@@ -3,12 +3,12 @@
 namespace App\Builders;
 
 
-use App\Models\School;
+use App\Models\District;
 
-class SchoolBuilder extends CoreBuilder {
+class DistrictBuilder extends CoreBuilder {
 
     public function createEmpty(): CoreBuilder {
-        $this->model = new School();
+        $this->model = new District();
 
         return $this;
     }

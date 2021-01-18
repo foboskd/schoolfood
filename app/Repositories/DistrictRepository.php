@@ -3,14 +3,14 @@
 namespace App\Repositories;
 
 
-use App\Models\School;
+use App\Models\District;
 
-class SchoolRepository extends CoreRepository {
+class DistrictRepository extends CoreRepository {
 
     private $model;
 
     public function __construct() {
-        $this->model = new School();
+        $this->model = new District();
     }
 
     protected function getModel() {

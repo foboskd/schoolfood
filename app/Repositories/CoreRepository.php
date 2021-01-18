@@ -19,6 +19,18 @@ abstract class CoreRepository {
         return $model;
     }
 
+    public function getByIdForPublic(int $id) {
+        $model = $this->getModel()->forPublic()->findOrFail($id);
+
+        return $model;
+    }
+
+    public function getByIdForAdmin(int $id) {
+        $model = $this->getModel()->forAdmin()->findOrFail($id);
+
+        return $model;
+    }
+
     public function getAllForPublic() {
         $query_builder = $this->getModel()->forPublic()->get();
 

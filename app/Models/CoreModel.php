@@ -39,4 +39,8 @@ abstract class CoreModel extends Model {
         return $query->orWhere($column, 'like', '%' . $value . '%');
     }
 
+    public function isUuid() {
+        return true;
+    }
+
 }

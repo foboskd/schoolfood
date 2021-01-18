@@ -18,6 +18,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         'index', 'create', 'store'
     ]);
 
+    Route::resource('/districts', DistrictController::class)->except([
+        'show'
+    ]);
+
     Route::get('/schools/{uuid}/reviews', 'SchoolController@reviews');
 
 });

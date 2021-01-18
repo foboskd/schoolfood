@@ -95,10 +95,13 @@ body {
     background-color: darkorange;
     padding: .25rem;
     border-radius: .25rem;
+    border: none;
 }
 
 .button {
     cursor: pointer;
+    /*width: 100%;*/
+    box-sizing: border-box;
 }
 
 .button > img{

@@ -14,15 +14,16 @@
 <div class="container">
     <form class="profile-wrapper" action="/logout" method="POST">
         @csrf
-
-        {{ \Illuminate\Support\Facades\Auth::user()->role }}
-
         <div class="block">
-            <a href="districts" class="link">
+            <a href="/admin/schools" class="link">
+                Школы
+            </a>
+
+            <a href="/admin/districts" class="link">
                 Районы
             </a>
 
-            <a href="users" class="link">
+            <a href="/admin/users" class="link">
                 Пользователи
             </a>
         </div>
