@@ -16,11 +16,13 @@ class SchoolController extends Controller {
 
     protected $reviews_repository;
 
+
     public function __construct() {
         $this->builder = new SchoolBuilder();
         $this->repository = new SchoolRepository();
         $this->reviews_repository = new ReviewRepository();
     }
+
 
     public function index() {
         $schools = $this->repository->getAllForAdmin();
@@ -28,9 +30,11 @@ class SchoolController extends Controller {
         return view('admin.school.index', compact('schools'));
     }
 
+
     public function create() {
         return view('admin.school.create');
     }
+
 
     public function store(CreateSchoolRequest $request) {
         $this->builder
@@ -41,6 +45,7 @@ class SchoolController extends Controller {
 
         return redirect('/admin/schools');
     }
+
 
     public function reviews(string $uuid) {
         $school = $this->repository->getByUuidForAdmin($uuid);
