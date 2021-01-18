@@ -8,26 +8,22 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable {
-    use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use Notifiable;
+
     protected $fillable = [
         'name',
         'password',
         'role_id',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+
     protected $hidden = [
         'password',
     ];
 
+
+    public function role() {
+        return $this->hasOne('App\Models\UserRole');
+    }
 }
