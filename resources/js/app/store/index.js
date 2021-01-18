@@ -72,6 +72,9 @@ export default new Vuex.Store({
             formData.append('score', this.state.score);
             formData.append('fingerprint', generate_fingerprint());
 
+            /*formData.append('latitude', '32.123215');
+            formData.append('longitude', '32.116799');*/
+
             if (this.state.score === -1) {
                 if (this.state.file) {
                     formData.append('file', this.state.file);
@@ -89,8 +92,10 @@ export default new Vuex.Store({
                     commit('setFile', null);
                 })
                 .catch(error => {
-                    setTimeout(()=> {
-                        alert('Вы уже голосовали сегодня');
+                    setTimeout(() => {
+                        if( error.response ){
+                            alert(error.response.data);
+                        }
                     }, 700);
                     commit('setScore', null);
                     commit('setText', null);

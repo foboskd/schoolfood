@@ -11,6 +11,8 @@ class ReviewLog extends CoreModel {
 
     protected $primaryKey = 'id';
 
+    public $timestamps = false;
+
     public static function getPublicFields() {
         return self::$public_fields;
     }

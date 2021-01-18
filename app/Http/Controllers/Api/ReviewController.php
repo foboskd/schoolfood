@@ -7,10 +7,12 @@ use App\Builders\ReviewLogBuilder;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateReviewRequest;
 use App\Repositories\ReviewRepository;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+use App\Repositories\SchoolRepository;
+use App\Traits\CoordinatesDistance;
 
 class ReviewController extends Controller {
+
+    use CoordinatesDistance;
 
     protected $builder;
 
@@ -18,10 +20,13 @@ class ReviewController extends Controller {
 
     protected $repository;
 
+    protected $school_repository;
+
     public function __construct() {
         $this->builder = new ReviewBuilder();
         $this->log_builder = new ReviewLogBuilder();
         $this->repository = new ReviewRepository();
+        $this->school_repository = new SchoolRepository();
     }
 
     public function store(CreateReviewRequest $request) {
@@ -32,6 +37,16 @@ class ReviewController extends Controller {
             ->setLatitude($request->latitude);
 
         $last_review = $this->repository->getLastByFingerprint($request->fingerprint);
+        $school = $this->school_repository->getByUuidForAdmin($request->uuid);
+
+        if ($request->longitude && $request->latitude) {
+            $distance = $this->getDistance($school->latitude, $school->longitude, $request->latitude, $request->longitude);
+
+            if ($distance > 500) {
+                $this->log_builder->save();
+                return response('Вы находитесь за пределом радиуса школы', 400);
+            }
+        }
 
         if (!$last_review) {
             $this->builder

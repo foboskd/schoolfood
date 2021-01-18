@@ -35,6 +35,6 @@
 
         <input type="text" name="longitude" placeholder="Долгота" required value="{{ $school->longitude }}">
 
-        <input type="submit" value="Создать" class="button">
+        <input type="submit" value="Сохранить" class="button">
     </form>
 @endsection
