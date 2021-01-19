@@ -52,4 +52,10 @@ class SchoolController extends Controller {
         return redirect('/moderator/schools');
     }
 
+    public function reviews(string $uuid) {
+        $school = $this->repository->getByUuidForAdmin($uuid);
+
+        return view('moderator.school.reviews', compact('school'));
+    }
+
 }

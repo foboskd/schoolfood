@@ -17,6 +17,9 @@
             <div class="col">
                 <strong>Адрес</strong>
             </div>
+            <div class="col">
+                <strong>Действие</strong>
+            </div>
         </div>
         @foreach($schools as $school)
             <div class="row">
@@ -25,6 +28,12 @@
                 </div>
                 <div class="col">
                     {{ $school->address }}
+                </div>
+                <div class="col">
+                    <a target="_blank" href="/moderator/schools/{{ $school->uuid }}/reviews" class="button small-button">
+                        <img src="{{ asset('/media/img/expand.svg')  }}" alt="">
+                        Отзывы
+                    </a>
                 </div>
             </div>
         @endforeach
