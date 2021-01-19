@@ -40,6 +40,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Moderator', 'prefix' => 'mode
         'index', 'create', 'store'
     ]);
 
+    Route::get('/schools/{uuid}/reviews', 'SchoolController@reviews');
+
 });
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {

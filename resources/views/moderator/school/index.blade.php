@@ -18,6 +18,12 @@
                 <strong>Адрес</strong>
             </div>
             <div class="col">
+                <strong>Количество голосов</strong>
+            </div>
+            <div class="col">
+                <strong>Сумма</strong>
+            </div>
+            <div class="col">
                 <strong>Действие</strong>
             </div>
         </div>
@@ -28,6 +34,12 @@
                 </div>
                 <div class="col">
                     {{ $school->address }}
+                </div>
+                <div class="col">
+                    {{ count($school->reviews) }}
+                </div>
+                <div class="col">
+                    {{ $school->reviewsSum() }}
                 </div>
                 <div class="col">
                     <a target="_blank" href="/moderator/schools/{{ $school->uuid }}/reviews" class="button small-button">
