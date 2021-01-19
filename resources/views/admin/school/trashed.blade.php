@@ -8,10 +8,7 @@
                 {{ $school->title }}
             </h1>
             <h2>
-                Всего проголосовало : {{ count($school->reviews) }}
-            </h2>
-            <h2>
-                Сумма : {{ $school->reviewsSum() }}
+                Всего удаленных : {{ count($reviews_trashed) }}
             </h2>
         </div>
 
@@ -43,11 +40,8 @@
             <div class="col">
                 <strong>Файл</strong>
             </div>
-            <div class="col">
-                Действие
-            </div>
         </div>
-        @foreach($school->reviews as $review)
+        @foreach($reviews_trashed as $review)
             <div class="review-row">
                 <div class="col">
                     {{ $review->created_at['date']}}
@@ -65,16 +59,6 @@
                     @if($review->file)
                         <img src="/storage/files/{{ $review->file }}" alt="">
                     @endif
-                </div>
-                <div class="col">
-                    <form action="/admin/reviews/{{ $review->uuid }}" method="POST" class="button small-button">
-                        @csrf
-                        @method('DELETE')
-
-                        <button class="button">
-                            <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
-                        </button>
-                    </form>
                 </div>
             </div>
         @endforeach

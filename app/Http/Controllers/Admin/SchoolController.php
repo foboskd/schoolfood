@@ -6,6 +6,7 @@ use App\Builders\SchoolBuilder;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateSchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
+use App\Models\Review;
 use App\Repositories\DistrictRepository;
 use App\Repositories\ReviewRepository;
 use App\Repositories\SchoolRepository;
@@ -16,12 +17,15 @@ class SchoolController extends Controller {
 
     protected $repository;
 
+    protected $review_repository;
+
     protected $district_repository;
 
 
     public function __construct() {
         $this->builder = new SchoolBuilder();
         $this->repository = new SchoolRepository();
+        $this->review_repository = new ReviewRepository();
         $this->district_repository = new DistrictRepository();
     }
 
@@ -92,4 +96,22 @@ class SchoolController extends Controller {
 
         return view('admin.school.reviews', compact('school'));
     }
+
+
+    public function trash(string $uuid) {
+        $school = $this->repository->getByUuidForAdmin($uuid);
+        $reviews_trashed = $school->reviews_trashed;
+
+        return view('admin.school.trashed', compact('school', 'reviews_trashed'));
+    }
+
+    public function reviewDelete(string $uuid) {
+        $review = $this->review_repository->getByUuidForAdmin($uuid);
+
+        $review->delete();
+
+        return redirect('/admin/schools');
+    }
+
+
 }

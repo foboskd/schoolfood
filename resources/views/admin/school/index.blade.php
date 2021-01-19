@@ -46,6 +46,7 @@
                         <img src="{{ asset('/media/img/expand.svg')  }}" alt="">
                         Отзывы
                     </a>
+
                     <a target="_blank" href="/api/qr-code/{{ $school->uuid }}" class="button small-button">
                         <img src="{{ asset('/media/img/qr-code.svg')  }}" alt="">
                         Сгенерировать qr-code
@@ -68,6 +69,11 @@
                             </button>
                         </form>
                     </div>
+
+                    <a target="_blank" href="/admin/schools/{{ $school->uuid }}/trash" class="button small-button">
+                        <img src="{{ asset('/media/img/trash.svg')  }}" alt="">
+                        Корзина
+                    </a>
                 </div>
             </div>
         @endforeach

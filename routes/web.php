@@ -28,6 +28,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
 
     Route::get('/schools/{uuid}/reviews', 'SchoolController@reviews');
 
+    Route::get('/schools/{uuid}/trash', 'SchoolController@trash');
+
+    Route::delete('/reviews/{uuid}', 'SchoolController@reviewDelete');
+
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Moderator', 'prefix' => 'moderator', 'middleware' => ['auth', 'verify.moderator']], function () {
@@ -35,8 +39,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Moderator', 'prefix' => 'mode
     Route::resource('/schools', SchoolController::class)->only([
         'index', 'create', 'store'
     ]);
-
-    Route::get('/schools/{uuid}/reviews', 'SchoolController@reviews');
 
 });
 

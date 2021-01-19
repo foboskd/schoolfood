@@ -23,6 +23,10 @@ class School extends CoreModel {
         return $this->hasMany('App\Models\Review', 'school_uuid', 'uuid')->orderBy('created_at', 'DESC');
     }
 
+    public function reviews_trashed() {
+        return $this->hasMany('App\Models\Review', 'school_uuid', 'uuid')->orderBy('created_at', 'DESC')->onlyTrashed();
+    }
+
     public function reviewsSum() {
         return $this->hasMany('App\Models\Review', 'school_uuid', 'uuid')->sum('score');
     }
