@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        api: 'https://xn--80aaflnbqinod1bycxb.xn--p1ai/api/',
+        api: window.location.origin + '/api/',
+        // api: 'https://xn--80aaflnbqinod1bycxb.xn--p1ai/api/',
         // api: 'http://127.0.0.1:8000/api/',
         school: null,
 
