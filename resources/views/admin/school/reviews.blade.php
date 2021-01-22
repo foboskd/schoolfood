@@ -62,6 +62,7 @@
                     {{ $review->score === -1 ? 'Отрицательно' : 'Положительно' }}
                 </div>
                 <div class="col">
+                    {{ $review->file  }}
                     @if($review->file)
                         <img src="/storage/files/{{ $review->file }}" alt="">
                     @endif
